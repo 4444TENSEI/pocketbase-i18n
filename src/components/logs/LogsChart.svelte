@@ -92,6 +92,7 @@
             data: {
                 datasets: [
                     {
+                        // 🐱
                         label: "Total requests",
                         data: chartData,
                         borderColor: "#e34562",

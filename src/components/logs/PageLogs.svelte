@@ -1,5 +1,5 @@
 <script>
-    import { _ } from 'svelte-i18n';
+    import { _ } from "svelte-i18n";
     import { querystring } from "svelte-spa-router";
     import { pageTitle } from "@/stores/app";
     import CommonHelper from "@/utils/CommonHelper";
@@ -66,7 +66,7 @@
             <nav class="breadcrumbs">
                 <div class="breadcrumb-item">{$pageTitle}</div>
             </nav>
-
+            <!-- 🐱 -->
             <button
                 type="button"
                 aria-label="Logs settings"

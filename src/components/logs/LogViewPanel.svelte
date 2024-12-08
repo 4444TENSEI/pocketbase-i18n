@@ -153,7 +153,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="min-width txt-hint txt-bold">created</td>
+                    <td class="min-width txt-hint txt-bold">{$_("page.log.table.field.createAt")}</td>
                     <td>
                         <LogDate date={log.created} />
                         <div class="copy-icon-wrapper">
@@ -163,7 +163,7 @@
                 </tr>
                 {#if !isRequest}
                     <tr>
-                        <td class="min-width txt-hint txt-bold">message</td>
+                        <td class="min-width txt-hint txt-bold">{$_("page.log.table.field.message")}</td>
                         <td>
                             {#if log.message}
                                 <span class="txt">{log.message}</span>

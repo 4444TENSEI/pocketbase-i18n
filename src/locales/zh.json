@@ -17,7 +17,7 @@
       "deleteData": "删除",
       "refresh": "刷新",
       "enable": "启用",
-      "save": "保存更改",
+      "save": "保存",
       "cancel": "取消",
       "reset": "重置",
       "loadMore": "查看更多",
@@ -76,24 +76,37 @@
         "field": {
           "level": "请求结果",
           "message": "请求详情信息",
-          "created": "创建于"
+          "createAt": "创建于"
         }
       },
-      "logSetting": {
-        "name": "日志设置",
-        "dialog": {
-          "txt1": "设置为",
-          "txt2": "禁用日志持久性",
-          "txt3": "级别低于最低级别的日志将被忽略",
-          "txt4": "默认日志级别",
-          "btn": "启用 IP 日志记录",
-          "btn": "启用身份验证 ID 日志记录"
+      "setting": {
+        "title": "日志设置",
+        "maxDaysRetention": "日志保留天数",
+        "minLogLevel": "最小日志级别",
+        "enableIpLog": "IP 访问记录",
+        "enableAuthLog": "身份验证记录",
+        "content": {
+          "1": "设置为 0 将停止保留日志",
+          "2": "级别低于最小值的日志将被忽略。"
         }
       }
     },
     "setting": {
+      "group": {
+        "basic": "基础配置",
+        "export": "导出 / 导入配置"
+      },
+      "menu": {
+        "server": "服务",
+        "smtp": "邮件",
+        "fileStorage": "对象储存",
+        "autoBackup": "自动备份"
+      },
+
+
+
+      
       "system": {
-        "name": "系统",
         "application": {
           "label1": "应用名称",
           "label2": "申请网址",
