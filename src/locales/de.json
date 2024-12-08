@@ -1,0 +1,218 @@
+{
+    "common": {
+        "login": "API Preview",
+        "email": "Email",
+        "password": "Password",
+        "btn": {
+            "enable": "Enable",
+            "cancel": "Cancel",
+            "save": "Save change",
+            "reset": "Reset",
+            "load": "Load More"
+        },
+        "tip": {
+            "enabled": "Enabled",
+            "disbled": "Disbled"
+        }
+    },
+    "login": {
+        "title": "Superuser login",
+        "link": {
+            "forgetPsw": "Forgot password?"
+        }
+    },
+    "forget": {
+        "title": "找回密码",
+        "content": {
+            "1": "输入您的邮件地址，我们将发送您'用于重置密码的链接'",
+            "2": "邮件已尝试发送至 ' {email} ', 如未收到则表示：1. 用户邮箱不存在 2. 收入了邮件回收站"
+        },
+        "link": {
+            "goBack": "返回登录"
+        },
+        "btn": {
+            "sendForgetEmail": "发送重置邮件"
+        }
+    },
+    "collections": {
+        "content": {
+            "btn1": {
+                "name": "API Preview",
+                "dialog": {
+                    "title": ""
+                }
+            },
+            "btn2": {
+                "name": "New record",
+                "dialog": {
+                    "title": ""
+                }
+            },
+            "txt1": "No records found",
+            "txt2": "New record",
+            "txt3": "Toggle columns"
+        },
+        "sideBar": {
+            "btn1": {
+                "name": "New collection",
+                "dialog": {
+                    "label1": "Name",
+                    "btn1": "Name"
+                }
+            }
+        }
+    },
+    "logs": {
+        "name": "Logs",
+        "txt1": "Default log levels:",
+        "txt2": "Found",
+        "txt3": "logs",
+        "table": {
+            "field1": {
+                "name": "level"
+            },
+            "field2": {
+                "name": "message"
+            },
+            "field3": {
+                "name": "created"
+            }
+        },
+        "btn1": {
+            "name": "Logs settings",
+            "dialog": {
+                "txt1": "Set to",
+                "txt2": "to disable logs persistence",
+                "txt3": "Logs with level below the minimum will be ignored",
+                "txt4": "Default log levels",
+                "btn1": "Enable IP logging",
+                "btn2": "Enable Auth Id logging"
+            }
+        },
+        "btn2": "Include requests by superusers"
+    },
+    "settings": {
+        "system": {
+            "name": "System",
+            "application": {
+                "label1": "Application name",
+                "label2": "Application URL",
+                "proxy": {
+                    "title": "User IP proxy headers",
+                    "txt1": "Resolved user IP",
+                    "txt2": "Detected proxy header:",
+                    "txt3": "When PocketBase is deployed on platforms like Fly or it is accessible through proxies such asNGINX, requests from different users will originate from the same IP address (the IP of the proxyconnecting to your PocketBase app)",
+                    "txt4": "In this case to retrieve the actual user IP (used for rate limiting, logging, etc) you need toproperly configure your proxy and list below the trusted headers that PocketBase could use toextract the user IP",
+                    "txt5": "When using such proxy, to avoid spoofing it is recommended to:",
+                    "txt6": "use headers that are controlled only by the proxy and cannot be manually set by the users",
+                    "txt7": "make sure that the PocketBase server can be accessed only through the proxy",
+                    "txt8": "You can clear the headers field if PocketBase is not deployed behind a proxy",
+                    "txt9": "Comma separated list of headers such as:",
+                    "label1": "Trusted proxy headers",
+                    "label2": "IP priority selection"
+                },
+                "rate": {
+                    "title": "Rate limiting",
+                    "table": {
+                        "field1": {
+                            "name": "Rate limit label"
+                        },
+                        "field2": {
+                            "name": "Max requests111 (per IP)"
+                        },
+                        "field3": {
+                            "name": "Interval111 (in seconds)"
+                        },
+                        "field4": {
+                            "name": "Targeted users"
+                        }
+                    },
+                    "btn1": {
+                        "name": "Add rate limit rule",
+                        "dialog": {
+                            "title": "Learn more about the rate limit rules",
+                            "txt1": "Rate limit label format",
+                            "txt2": "The rate limit rules are resolved in the following order (stops on the first match):",
+                            "txt3": "In case of multiple rules with the same label but different target user audience (eg 'guest' vs 'auth'), only the matching audience rule is taken in consideration",
+                            "txt4": "The rate limit label could be in one of the following formats:"
+                        }
+                    }
+                },
+                "batch": {
+                    "title": "Batch API",
+                    "label1": "Max allowed batch requests",
+                    "label2": "Max processing time (in seconds)",
+                    "label3": "Max body size (in bytes)"
+                },
+                "btn1": "Hide collection create and edit controls"
+            },
+            "mailSetting": {
+                "title": "Configure common settings for sending emails",
+                "label1": "Sender name",
+                "label2": "Sender address",
+                "btn1": "Use SMTP mail server (recommended)",
+                "btn2": {
+                    "txt1": "Show more options",
+                    "txt2": "Hide more options"
+                },
+                "label3": "SMTP server host",
+                "label4": "Port",
+                "label5": "Username",
+                "label6": "Password",
+                "label7": "TLS encryption",
+                "label8": "AUTH method",
+                "label9": "EHLO/HELO domain"
+            },
+            "fileStorage": {
+                "txt1": "By default PocketBase uses the local file system to store uploaded files",
+                "txt2": "If you have limited disk space, you could optionally connect to an S3 compatible storage",
+                "btn1": "Use S3 storage",
+                "txt3": "If you have existing uploaded files, you'll have to migrate them manually from the",
+                "txt4": "There are numerous command line tools that can help you, such as:",
+                "label1": "Endpoint",
+                "label2": "Bucket",
+                "label3": "Region",
+                "label4": "Access key",
+                "label5": "Secret",
+                "btn2": "Force path-style addressing"
+            },
+            "buckups": {
+                "txt1": "Backup and restore your PocketBase data",
+                "txt2": "No backups yet",
+                "btn1": {
+                    "name": "Initialize new backup",
+                    "dialog": {
+                        "txt1": "Please note that during the backup other concurrent write requests may fail since the database will be temporary 'locked' (this usually happens only during the ZIP generation)",
+                        "txt2": "If you are using S3 storage for the collections file upload, you'll have to backup them separately since they are not locally stored and will not be included in the final backup!",
+                        "txt3": "Must be in the format [a-z0-9_-]zip",
+                        "label1": "Backup name",
+                        "btn1": "Cancel",
+                        "btn2": "Start backup"
+                    }
+                },
+                "btn2": {
+                    "name": "Backups options",
+                    "btn1": {
+                        "name": "Enable auto backups"
+                    },
+                    "btn2": "Store backups in S3 storage"
+                }
+            }
+        },
+        "sync": {
+            "name": "Sync",
+            "export": {
+                "title": "Export collections",
+                "txt1": "Below you'll find your current collections configuration that you could import in another PocketBase environment",
+                "btn1": "Download as JSON"
+            },
+            "import": {
+                "title": "Import collections",
+                "txt1": "Paste below the collections configuration you want to import or",
+                "txt2": "Collections",
+                "btn1": "Load from JSON file",
+                "btn2": "Review"
+            }
+        }
+    }
+}

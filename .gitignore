@@ -1,20 +1,13 @@
-/.vscode/
-.idea
+node_modules/
+.vscode/
+script/
+dist/
 
 .DS_Store
 
-# goreleaser builds folder
-/.builds/
+.env.local
+.env.*.local
 
-# tests coverage
-coverage.out
-
-# plaintask todo files
-*.todo
-
-# generated markdown previews
-README.html
-CHANGELOG.html
-CHANGELOG_16_22.html
-CHANGELOG_8_15.html
-LICENSE.html
+pb_*/
+*.exe
+*.go
