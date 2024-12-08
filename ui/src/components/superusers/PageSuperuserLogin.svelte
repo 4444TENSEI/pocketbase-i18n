@@ -192,7 +192,7 @@
                 <label for={uniqueId}>Password</label>
                 <input type="password" id={uniqueId} bind:value={password} required />
                 <div class="help-block">
-                    <a href="/request-password-reset" class="link-hint" use:link>Forgotten password?</a>
+                    <a href="/request-password-reset" class="link-hint" use:link>{$_("login.link.forgetPsw")}</a>
                 </div>
             </Field>
 
@@ -211,7 +211,7 @@
             <!-- request otp -->
             <form class="block" on:submit|preventDefault={requestOTP}>
                 <Field class="form-field required" name="email" let:uniqueId>
-                    <label for={uniqueId}>Email</label>
+                    <label for={uniqueId}>{$_("login.label.email")}</label>
                     <input type="email" id={uniqueId} bind:value={otpEmail} required />
                 </Field>
 
@@ -264,7 +264,7 @@
                     class:btn-disabled={otpAuthSubmitting}
                     class:btn-loading={otpAuthSubmitting}
                 >
-                    <span class="txt">Login</span>
+                    <span class="txt">{$_("login.btn.login")}</span>
                     <i class="ri-arrow-right-line" />
                 </button>
             </form>

@@ -1,11 +1,12 @@
-/node_modules/
-/.vscode/
+node_modules/
+.vscode/
 .DS_Store
 
 # exclude local env files
 .env.local
 .env.*.local
 
-/pb_*/
+dist/
+pb_*/
 *.exe
-/*.go
+*.go

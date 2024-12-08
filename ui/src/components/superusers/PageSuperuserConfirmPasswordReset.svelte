@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import { link, replace } from "svelte-spa-router";
     import ApiClient from "@/utils/ApiClient";
     import CommonHelper from "@/utils/CommonHelper";

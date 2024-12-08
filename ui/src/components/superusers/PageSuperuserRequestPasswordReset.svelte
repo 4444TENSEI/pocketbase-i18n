@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import { link } from "svelte-spa-router";
     import ApiClient from "@/utils/ApiClient";
     import FullPage from "@/components/base/FullPage.svelte";
@@ -37,12 +38,12 @@
     {:else}
         <form class="m-b-base" on:submit|preventDefault={submit}>
             <div class="content txt-center m-b-sm">
-                <h4 class="m-b-xs">Forgotten superuser password</h4>
-                <p>Enter the email associated with your account and we’ll send you a recovery link:</p>
+                <h4 class="m-b-xs">{$_("forget.title")}</h4>
+                <p>{$_("forget.content.1")}</p>
             </div>
 
             <Field class="form-field required" name="email" let:uniqueId>
-                <label for={uniqueId}>Email</label>
+                <label for={uniqueId}>{$_("forget.label.email")}</label>
                 <!-- svelte-ignore a11y-autofocus -->
                 <input type="email" id={uniqueId} required autofocus bind:value={email} />
             </Field>
@@ -54,12 +55,12 @@
                 disabled={isLoading}
             >
                 <i class="ri-mail-send-line" />
-                <span class="txt">Send recovery link</span>
+                <span class="txt">{$_("forget.btn.sendForgetEmail")}</span>
             </button>
         </form>
     {/if}
 
     <div class="content txt-center">
-        <a href="/login" class="link-hint" use:link>Back to login</a>
+        <a href="/login" class="link-hint" use:link>{$_("forget.link.goBack")}</a>
     </div>
 </FullPage>

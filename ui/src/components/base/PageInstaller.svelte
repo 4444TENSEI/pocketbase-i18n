@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import { tick } from "svelte";
     import { replace } from "svelte-spa-router";
     import { getTokenPayload } from "pocketbase";
@@ -146,7 +147,7 @@
         </div>
 
         <Field class="form-field required" name="email" let:uniqueId>
-            <label for={uniqueId}>Email</label>
+            <label for={uniqueId}>{$_("login.label.email")}</label>
             <input
                 bind:this={emailInput}
                 type="email"
