@@ -1,196 +1,237 @@
 {
-  "collections": {
-    "content": {
-      "btn1": {
-        "name": "API Preview",
-        "dialog": {
-          "title": ""
-        }
-      },
-      "btn2": {
-        "name": "New record",
-        "dialog": {
-          "title": ""
-        }
-      },
-      "txt1": "No records found",
-      "txt2": "New record",
-      "txt3": "Toggle columns"
-    },
-    "sideBar": {
-      "btn1": {
-        "name": "New collection",
-        "dialog": {
-          "label1": "Name",
-          "btn1": "Name"
-        }
-      }
-    }
-  },
-  "logs": {
-    "name": "Logs",
-    "txt1": "Default log levels:",
-    "txt2": "Found",
-    "txt3": "logs",
-    "table": {
-      "field1": {
-        "name": "level"
-      },
-      "field2": {
-        "name": "message"
-      },
-      "field3": {
-        "name": "created"
-      }
-    },
-    "btn1": {
-      "name": "Logs settings",
-      "dialog": {
-        "txt1": "Set to",
-        "txt2": "to disable logs persistence",
-        "txt3": "Logs with level below the minimum will be ignored",
-        "txt4": "Default log levels",
-        "btn1": "Enable IP logging",
-        "btn2": "Enable Auth Id logging"
-      }
-    },
-    "btn2": "Include requests by superusers"
-  },
-  "settings": {
-    "system": {
-      "name": "System",
-      "application": {
-        "label1": "Application name",
-        "label2": "Application URL",
-        "proxy": {
-          "title": "User IP proxy headers",
-          "txt1": "Resolved user IP",
-          "txt2": "Detected proxy header:",
-          "txt3": "When PocketBase is deployed on platforms like Fly or it is accessible through proxies such asNGINX, requests from different users will originate from the same IP address (the IP of the proxyconnecting to your PocketBase app)",
-          "txt4": "In this case to retrieve the actual user IP (used for rate limiting, logging, etc) you need toproperly configure your proxy and list below the trusted headers that PocketBase could use toextract the user IP",
-          "txt5": "When using such proxy, to avoid spoofing it is recommended to:",
-          "txt6": "use headers that are controlled only by the proxy and cannot be manually set by the users",
-          "txt7": "make sure that the PocketBase server can be accessed only through the proxy",
-          "txt8": "You can clear the headers field if PocketBase is not deployed behind a proxy",
-          "txt9": "Comma separated list of headers such as:",
-          "label1": "Trusted proxy headers",
-          "label2": "IP priority selection"
-        },
-        "rate": {
-          "title": "Rate limiting",
-          "table": {
-            "field1": {
-              "name": "Rate limit label"
-            },
-            "field2": {
-              "name": "Max requests111 (per IP)"
-            },
-            "field3": {
-              "name": "Interval111 (in seconds)"
-            },
-            "field4": {
-              "name": "Targeted users"
-            }
-          },
-          "btn1": {
-            "name": "Add rate limit rule",
-            "dialog": {
-              "title": "Learn more about the rate limit rules",
-              "txt1": "Rate limit label format",
-              "txt2": "The rate limit rules are resolved in the following order (stops on the first match):",
-              "txt3": "In case of multiple rules with the same label but different target user audience (eg 'guest' vs 'auth'), only the matching audience rule is taken in consideration",
-              "txt4": "The rate limit label could be in one of the following formats:"
-            }
-          }
-        },
-        "batch": {
-          "title": "Batch API",
-          "label1": "Max allowed batch requests",
-          "label2": "Max processing time (in seconds)",
-          "label3": "Max body size (in bytes)"
-        },
-        "btn1": "Hide collection create and edit controls"
-      },
-      "mailSetting": {
-        "title": "Configure common settings for sending emails",
-        "label1": "Sender name",
-        "label2": "Sender address",
-        "btn1": "Use SMTP mail server (recommended)",
-        "btn2": {
-          "txt1": "Show more options",
-          "txt2": "Hide more options"
-        },
-        "label3": "SMTP server host",
-        "label4": "Port",
-        "label5": "Username",
-        "label6": "Password",
-        "label7": "TLS encryption",
-        "label8": "AUTH method",
-        "label9": "EHLO/HELO domain"
-      },
-      "fileStorage": {
-        "txt1": "By default PocketBase uses the local file system to store uploaded files",
-        "txt2": "If you have limited disk space, you could optionally connect to an S3 compatible storage",
-        "btn1": "Use S3 storage",
-        "txt3": "If you have existing uploaded files, you'll have to migrate them manually from the",
-        "txt4": "There are numerous command line tools that can help you, such as:",
-        "label1": "Endpoint",
-        "label2": "Bucket",
-        "label3": "Region",
-        "label4": "Access key",
-        "label5": "Secret",
-        "btn2": "Force path-style addressing"
-      },
-      "buckups": {
-        "txt1": "Backup and restore your PocketBase data",
-        "txt2": "No backups yet",
-        "btn1": {
-          "name": "Initialize new backup",
-          "dialog": {
-            "txt1": "Please note that during the backup other concurrent write requests may fail since the database will be temporary 'locked' (this usually happens only during the ZIP generation)",
-            "txt2": "If you are using S3 storage for the collections file upload, you'll have to backup them separately since they are not locally stored and will not be included in the final backup!",
-            "txt3": "Must be in the format [a-z0-9_-]zip",
-            "label1": "Backup name",
-            "btn1": "Cancel",
-            "btn2": "Start backup"
-          }
-        },
-        "btn2": {
-          "name": "Backups options",
-          "btn1": {
-            "name": "Enable auto backups"
-          },
-          "btn2": "Store backups in S3 storage"
-        }
-      }
-    },
-    "sync": {
-      "name": "Sync",
-      "export": {
-        "title": "Export collections",
-        "txt1": "Below you'll find your current collections configuration that you could import in another PocketBase environment",
-        "btn1": "Download as JSON"
-      },
-      "import": {
-        "title": "Import collections",
-        "txt1": "Paste below the collections configuration you want to import or",
-        "txt2": "Collections",
-        "btn1": "Load from JSON file",
-        "btn2": "Review"
-      }
-    }
-  },
   "common": {
-    "btn": {
-      "enable": "Enable",
+    "user": {
+      "email": "mail",
+      "password": "password",
+      "name": "Name"
+    },
+    "role": {
+      "admin": "administrator",
+      "user": "user"
+    },
+    "action": {
+      "login": "Log in",
+      "logout": "Log out",
+      "createData": "Add new data",
+      "editData": "edit",
+      "deleteData": "delete",
+      "refresh": "refresh",
+      "enable": "enable",
+      "save": "save",
       "cancel": "Cancel",
-      "save": "Save Change",
-      "reset": "Reset",
-      "load": "Load more"
+      "reset": "reset",
+      "loadMore": "View more"
     },
     "tip": {
-      "enabled": "Enable",
-      "disbled": "Disbled"
+      "enabled": "enable",
+      "disbled": "Disable"
+    },
+    "menu": {
+      "collection": "data",
+      "log": "log",
+      "setting": "set up"
+    },
+    "message": {
+      "notFountData": "No records yet"
+    },
+    "link": {
+      "learnMore": "learn more"
+    }
+  },
+  "page": {
+    "login": {
+      "title": "Administrator login",
+      "link": {
+        "forgetPsw": "Forgot your password?"
+      }
+    },
+    "forget": {
+      "title": "Retrieve password",
+      "content": {
+        "1": "Enter your email address and we'll send you a 'link to reset your password'",
+        "2": "The email has been tried to be sent to '{email}'. If it is not received, it means: 1. The user's mailbox does not exist. 2. It has been collected in the email recycle bin."
+      },
+      "link": {
+        "goBack": "Return to login"
+      },
+      "action": {
+        "sendForgetEmail": "Send reset email"
+      }
+    },
+    "collection": {
+      "content": {
+        "action": {
+          "apiPreviewme": "Interface documentation"
+        }
+      },
+      "sideBar": {
+        "action": {
+          "newRecord": "Create data table"
+        }
+      }
+    },
+    "log": {
+      "logLevel": "Log classification:",
+      "foundTotalLog": "{ total } items found",
+      "adminLog": "show administrator log",
+      "table": {
+        "field": {
+          "level": "Request results",
+          "message": "Request details",
+          "createAt": "Created in"
+        }
+      },
+      "setting": {
+        "title": "Log settings",
+        "maxDaysRetention": "Log retention days",
+        "minLogLevel": "Minimum log level",
+        "enableIpLog": "IP access history",
+        "enableAuthLog": "Authentication record",
+        "content": {
+          "1": "Set to 0 to stop keeping logs",
+          "2": "Logs with levels below the minimum will be ignored."
+        }
+      }
+    },
+    "setting": {
+      "sideBar": {
+        "group": {
+          "basic": "Basic configuration",
+          "export": "Export/import configuration"
+        },
+        "application": "Serve",
+        "smtp": "mail",
+        "fileStorage": "object storage",
+        "autoBackup": "Data backup",
+        "exportConfig": "Export configuration",
+        "importConfig": "Import configuration"
+      },
+      "content": {
+        "application": {
+          "serverName": "Backend ID",
+          "serverUrl": "Backend address",
+          "proxy": {
+            "title": "User IP proxy header",
+            "curIp": "Current service IP:",
+            "curProxyHeader": "Current proxy header:",
+            "content": {
+              "1": "When PocketBase is deployed on a platform such as Fly or accessible through a proxy such as NGINX, requests from different users will originate from the same IP address (the IP of the proxy connected to the PocketBase application)",
+              "2": "In this case, to retrieve the actual user IP (for rate limiting, logging, etc.) you need to configure the proxy correctly and list below the trusted headers PocketBase can use to extract the user IP",
+              "3": "When using such proxies, to avoid deception it is recommended to:",
+              "4": "Use headers that are only controlled by the proxy and cannot be set manually by the user",
+              "5": "Make sure the PocketBase server is only accessible through a proxy",
+              "6": "If PocketBase is not deployed behind a proxy, you can clear the header field",
+              "7": "Comma separated list of headers, for example:",
+              "8": "Trusted proxy header",
+              "9": "IP priority selection"
+            }
+          },
+          "rate": {
+            "title": "Limit request rate",
+            "table": {
+              "field": {
+                "route": "routing",
+                "maximum": "Maximum (per IP)",
+                "intervalTime": "Request interval (unit: seconds)",
+                "roleToLimit": "Restricted objects"
+              }
+            },
+            "action": {
+              "addRule": "Add restriction rules"
+            },
+            "content": {
+              "1": "Rate limit label format",
+              "2": "Rate limiting rules are parsed in the following order (stopping on first match)",
+              "3": "If multiple rules have the same label but target different user audiences (e.g. 'guest' vs. 'auth'), only the matching audience rule will be considered",
+              "4": "Rate limit labels can be in one of the following formats:"
+            }
+          },
+          "batch": {
+            "title": "Limit the number of concurrent requests allowed by the interface",
+            "maxConcurrentRequest": "Number of requests allowed to be processed simultaneously",
+            "requestTimeoutSecond": "Request timeout (in seconds)",
+            "requestBodySizeLimitByte": "Request body size limit (unit: bytes)"
+          },
+          "action": {
+            "hideEditControl": "Hide data creation and editing controls"
+          }
+        },
+        "smtp": {
+          "title": "SMTP configuration",
+          "senderNickname": "Sender's nickname",
+          "senderEmail": "Sender's email",
+          "action": {
+            "ownSmtpEnable": "Configure the SMTP service yourself (currently required)",
+            "expandDetail": "Expand more options",
+            "hideDetail": "Hide more options"
+          },
+          "smtpHost": "SMTP server host",
+          "smtpPort": "port",
+          "smtpUsername": "username",
+          "smtpPassword": "password",
+          "tlsEncryption": "TLS encryption",
+          "authMethod": "Authentication method",
+          "ehloOrHeloDomain": "Provide domain name for mail server authentication (EHLO/HELO)"
+        },
+        "fileStorage": {
+          "content": {
+            "1": "Use local file system by default to store uploaded files",
+            "2": "If you have limited disk space, you can choose to enable S3 Object Storage to store your files in cloud storage",
+            "3": "If migration is required, you need to manually copy local files to S3 storage",
+            "4": "There are many command line tools that can help you, such as rclone, s5cmd, etc."
+          },
+          "action": {
+            "s3Enable": "Enable S3 object storage",
+            "usePathStyleUrl": "Using path style S3 URLs"
+          },
+          "endpoint": "Endpoint",
+          "bucket": "Bucket",
+          "region": "Region",
+          "accessKey": "Access Key",
+          "secret": "Security Key (Secret)"
+        },
+        "buckup": {
+          "content": {
+            "1": "Back up and restore data",
+            "2": "No backup yet",
+            "3": "Please note that during the backup, other concurrent write requests may fail because the database will be temporarily 'locked' (usually happens during ZIP generation)",
+            "4": "If you use S3 storage to upload collection files, you must back them up separately as they are not stored locally and will not be included in the final backup",
+            "5": "The file name format must be [a-z0-9_-]zip"
+          },
+          "action": {
+            "createBackup": "Initialize new backup",
+            "moreBackupOption": "More backup options",
+            "enableAutoBackup": "Enable scheduled automatic backup",
+            "backupToS3": "Upload backup files to S3 storage",
+            "usePathStyleUrl": "Using path style S3 URLs",
+            "backupName": "Backup name",
+            "cancel": "Cancel",
+            "startBackup": "Start backup"
+          }
+        },
+        "sync": {
+          "export": {
+            "title": "Export collection",
+            "content": {
+              "1": "Here you can view and export the current configuration information, or export and import it to another PocketBase environment."
+            },
+            "action": {
+              "exportJson": "Export as JSON file"
+            }
+          },
+          "import": {
+            "title": "Import the previous configuration here, you can paste JSON directly or import the file from",
+            "content": {
+              "1": "Here you can view and export the current configuration information, or export and import it to another PocketBase environment."
+            },
+            "action": {
+              "reviewJson": "check",
+              "clearInput": "Clear",
+              "importJson": "Import from JSON file"
+            }
+          }
+        }
+      }
     }
   }
 }
