@@ -147,7 +147,7 @@
         </div>
 
         <Field class="form-field required" name="email" let:uniqueId>
-            <label for={uniqueId}>{$_("common.email")}</label>
+            <label for={uniqueId}>{$_("common.user.email")}</label>
             <input
                 bind:this={emailInput}
                 type="email"

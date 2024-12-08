@@ -94,6 +94,7 @@
             </a>
 
             <nav class="main-menu">
+                <!-- 🐱 -->
                 <a
                     href="/collections"
                     class="menu-item"
@@ -104,6 +105,7 @@
                 >
                     <i class="ri-database-2-line" />
                 </a>
+                <!-- 🐱 -->
                 <a
                     href="/logs"
                     class="menu-item"
@@ -146,11 +148,11 @@
                         use:link
                     >
                         <i class="ri-shield-user-line" aria-hidden="true" />
-                        <span class="txt">Manage superusers</span>
+                        <span class="txt">{$_("common.role.admin")}</span>
                     </a>
                     <button type="button" class="dropdown-item closable" role="menuitem" on:click={logout}>
                         <i class="ri-logout-circle-line" aria-hidden="true" />
-                        <span class="txt">Logout</span>
+                        <span class="txt">{$_("common.action.logout")}</span>
                     </button>
                 </Toggler>
             </div>

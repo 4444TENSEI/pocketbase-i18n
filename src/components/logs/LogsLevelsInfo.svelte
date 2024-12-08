@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import { logLevels } from "@/utils/CommonHelper";
 
     let classes = "";
@@ -6,7 +7,7 @@
 </script>
 
 <div class={classes}>
-    Default log levels:
+    {$_("page.log.logLevel")}
     <div class="inline-flex flex-gap-5">
         {#each logLevels as options}
             <code class="txt-xs">{options.level}:{options.label}</code>

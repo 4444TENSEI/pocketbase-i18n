@@ -257,7 +257,7 @@
                         class="btn btn-pill btn-transparent btn-hint p-l-xs p-r-xs"
                         on:click={() => upsertPanel?.show()}
                     >
-                        <div class="txt">New record</div>
+                        <div class="txt">{$_("common.action.createData")}</div>
                     </button>
                 </div>
                 <Scroller

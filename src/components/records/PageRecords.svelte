@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import { tick } from "svelte";
     import { querystring } from "svelte-spa-router";
     import CommonHelper from "@/utils/CommonHelper";
@@ -173,7 +174,7 @@
     <PageWrapper class="flex-content">
         <header class="page-header">
             <nav class="breadcrumbs">
-                <div class="breadcrumb-item">Collections</div>
+                <div class="breadcrumb-item">{$_("common.menu.collection")}</div>
                 <div class="breadcrumb-item">{$activeCollection.name}</div>
             </nav>
 
@@ -205,13 +206,13 @@
                     on:click={() => collectionDocsPanel?.show($activeCollection)}
                 >
                     <i class="ri-code-s-slash-line" />
-                    <span class="txt">API Preview</span>
+                    <span class="txt">{$_("page.collection.content.btn.apiPreviewme")}</span>
                 </button>
 
                 {#if $activeCollection.type !== "view"}
                     <button type="button" class="btn btn-expanded" on:click={() => recordUpsertPanel?.show()}>
                         <i class="ri-add-line" />
-                        <span class="txt">New recossssrd</span>
+                        <span class="txt">{$_("common.action.createData")}</span>
                     </button>
                 {/if}
             </div>

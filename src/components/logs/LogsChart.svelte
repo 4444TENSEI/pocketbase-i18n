@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import { onMount } from "svelte";
     import { scale } from "svelte/transition";
     import ApiClient from "@/utils/ApiClient";
@@ -197,7 +198,7 @@
 
 <div class="chart-wrapper" class:loading={isLoading}>
     <div class="total-logs entrance-right" class:hidden={isLoading}>
-        Found {totalLogs}
+        {$_("page.log.foundTotalLogs", { values: { total: totalLogs } })}
         {totalLogs == 1 ? "log" : "logs"}
     </div>
 

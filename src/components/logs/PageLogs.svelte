@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import { querystring } from "svelte-spa-router";
     import { pageTitle } from "@/stores/app";
     import CommonHelper from "@/utils/CommonHelper";
@@ -83,7 +84,7 @@
             <div class="inline-flex">
                 <Field class="form-field form-field-toggle m-0" let:uniqueId>
                     <input type="checkbox" id={uniqueId} bind:checked={withSuperuserLogs} />
-                    <label for={uniqueId}>Include requests by superusers</label>
+                    <label for={uniqueId}>{$_("page.log.adminLog")}</label>
                 </Field>
             </div>
         </header>

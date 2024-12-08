@@ -1,83 +1,85 @@
 {
   "common": {
-    "email": "邮件",
-    "password": "密码",
-    "name": "姓名",
-    "login": "登录",
-    "logout": "退出登录",
-    "admin": "管理员",
-    "user": "用户",
-    "btn": {
-      "edit": "编辑",
+    "user": {
+      "email": "邮件",
+      "password": "密码",
+      "name": "姓名"
+    },
+    "role": {
+      "admin": "管理员",
+      "user": "用户"
+    },
+    "action": {
+      "login": "登录",
+      "logout": "退出登录",
+      "createData": "新增数据",
+      "editData": "编辑",
+      "deleteData": "删除",
       "refresh": "刷新",
-      "delete": "删除",
       "enable": "启用",
-      "cancel": "取消",
       "save": "保存更改",
+      "cancel": "取消",
       "reset": "重置",
-      "load": "加载更多"
+      "loadMore": "查看更多",
+      "exportJson": "导出为JSON文件"
     },
     "tip": {
       "enabled": "启用",
       "disbled": "禁用"
     },
-    "sideBar": {
+    "menu": {
       "collection": "数据",
       "log": "日志",
       "setting": "设置"
-    }
-  },
-  "login": {
-    "title": "管理员登录",
-    "link": {
-      "forgetPsw": "忘记密码了？"
-    }
-  },
-  "forget": {
-    "title": "找回密码",
-    "content": {
-      "1": "输入您的邮件地址，我们将发送您'用于重置密码的链接'",
-      "2": "邮件已尝试发送至 ' {email} ', 如未收到则表示：1. 用户邮箱不存在 2. 收入了邮件回收站"
     },
-    "link": {
-      "goBack": "返回登录"
-    },
-    "btn": {
-      "sendForgetEmail": "发送重置邮件"
+    "message": {
+      "notFountData": "还没有记录"
     }
   },
   "page": {
-    "collections": {
+    "login": {
+      "title": "管理员登录",
+      "link": {
+        "forgetPsw": "忘记密码了？"
+      }
+    },
+    "forget": {
+      "title": "找回密码",
+      "content": {
+        "1": "输入您的邮件地址，我们将发送您'用于重置密码的链接'",
+        "2": "邮件已尝试发送至 ' {email} ', 如未收到则表示：1. 用户邮箱不存在 2. 收入了邮件回收站"
+      },
+      "link": {
+        "goBack": "返回登录"
+      },
+      "btn": {
+        "sendForgetEmail": "发送重置邮件"
+      }
+    },
+    "collection": {
       "content": {
         "btn": {
-          "newCollection": "新建数据集",
-          "apiPreviewme": "API预览"
+          "apiPreviewme": "接口文档"
         }
       },
       "sideBar": {
         "btn": {
-          "newRecord": "新增记录",
-          "notFountData": "没有找到记录"
+          "newRecord": "创建数据表"
         }
       }
     },
-    "logs": {
-      "name": "日志",
-      "txt1": "默认日志级别：",
-      "txt2": "成立",
-      "txt3": "日志",
+    "log": {
+      "logLevel": "日志分级：",
+      "foundTotalLogs": "找到 { total } 条",
+      "adminLog": "显示管理员日志",
       "table": {
-        "field1": {
-          "name": "等级"
-        },
-        "field2": {
-          "name": "信息"
-        },
-        "field3": {
-          "name": "已创建"
+        "field": {
+          "level": "请求结果",
+          "message": "请求详情信息",
+          "created": "创建于"
         }
       },
-      "btn": {
+      "logSetting": {
         "name": "日志设置",
         "dialog": {
           "txt1": "设置为",
@@ -87,10 +89,9 @@
           "btn": "启用 IP 日志记录",
           "btn": "启用身份验证 ID 日志记录"
         }
-      },
-      "btn": "包括超级用户的请求"
+      }
     },
-    "settings": {
+    "setting": {
       "system": {
         "name": "系统",
         "application": {

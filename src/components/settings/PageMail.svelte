@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import tooltip from "@/actions/tooltip";
     import Field from "@/components/base/Field.svelte";
     import ObjectSelect from "@/components/base/ObjectSelect.svelte";
@@ -96,7 +97,7 @@
 <PageWrapper>
     <header class="page-header">
         <nav class="breadcrumbs">
-            <div class="breadcrumb-item">Settings</div>
+            <div class="breadcrumb-item">{$_("common.menu.setting")}</div>
             <div class="breadcrumb-item">{$pageTitle}</div>
         </nav>
     </header>

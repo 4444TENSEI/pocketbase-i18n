@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import Scroller from "@/components/base/Scroller.svelte";
     import SortHeader from "@/components/base/SortHeader.svelte";
     import LogDate from "@/components/logs/LogDate.svelte";
@@ -364,7 +365,7 @@
             class:btn-disabled={isLoading}
             on:click={() => load(currentPage + 1)}
         >
-            <span class="txt">Load more</span>
+            <span class="txt">{$_("common.action.loadMore")}</span>
         </button>
     </div>
 {/if}

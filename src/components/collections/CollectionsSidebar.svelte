@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import PageSidebar from "@/components/base/PageSidebar.svelte";
     import CollectionSidebarItem from "@/components/collections/CollectionSidebarItem.svelte";
     import CollectionUpsertPanel from "@/components/collections/CollectionUpsertPanel.svelte";
@@ -85,6 +86,7 @@
                     <i class="ri-close-line" />
                 </button>
             </div>
+            <!-- 🐱 -->
             <input
                 type="text"
                 placeholder="Search collections..."
@@ -152,7 +154,7 @@
         <footer class="sidebar-footer">
             <button type="button" class="btn btn-block btn-outline" on:click={() => collectionPanel?.show()}>
                 <i class="ri-add-line" />
-                <span class="txt">New collection</span>
+                <span class="txt">{$_("page.collection.sideBar.btn.newRecord")}</span>
             </button>
         </footer>
     {/if}

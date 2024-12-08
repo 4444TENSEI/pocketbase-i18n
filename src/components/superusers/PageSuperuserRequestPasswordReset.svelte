@@ -32,18 +32,18 @@
         <div class="alert alert-success">
             <div class="icon"><i class="ri-checkbox-circle-line" /></div>
             <div class="content">
-                <p>{$_("forget.content.2", { values: { email: email } })}</p>
+                <p>{$_("page.forget.content.2", { values: { email: email } })}</p>
             </div>
         </div>
     {:else}
         <form class="m-b-base" on:submit|preventDefault={submit}>
             <div class="content txt-center m-b-sm">
-                <h4 class="m-b-xs">{$_("forget.title")}</h4>
-                <p>{$_("forget.content.1")}</p>
+                <h4 class="m-b-xs">{$_("page.forget.title")}</h4>
+                <p>{$_("page.forget.content.1")}</p>
             </div>
 
             <Field class="form-field required" name="email" let:uniqueId>
-                <label for={uniqueId}>{$_("common.email")}</label>
+                <label for={uniqueId}>{$_("common.user.email")}</label>
                 <!-- svelte-ignore a11y-autofocus -->
                 <input type="email" id={uniqueId} required autofocus bind:value={email} />
             </Field>
@@ -55,12 +55,12 @@
                 disabled={isLoading}
             >
                 <i class="ri-mail-send-line" />
-                <span class="txt">{$_("forget.btn.sendForgetEmail")}</span>
+                <span class="txt">{$_("page.forget.btn.sendForgetEmail")}</span>
             </button>
         </form>
     {/if}
 
     <div class="content txt-center">
-        <a href="/login" class="link-hint" use:link>{$_("forget.link.goBack")}</a>
+        <a href="/login" class="link-hint" use:link>{$_("page.forget.link.goBack")}</a>
     </div>
 </FullPage>

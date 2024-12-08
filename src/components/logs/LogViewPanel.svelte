@@ -1,4 +1,5 @@
 <script>
+    import { _ } from "svelte-i18n";
     import { createEventDispatcher } from "svelte";
     import ApiClient from "@/utils/ApiClient";
     import CommonHelper from "@/utils/CommonHelper";
@@ -143,7 +144,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="min-width txt-hint txt-bold">level</td>
+                    <td class="min-width txt-hint txt-bold">{$_("page.log.table.field.level")}</td>
                     <td>
                         <LogLevel level={log.level} />
                         <div class="copy-icon-wrapper">

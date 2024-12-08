@@ -1,4 +1,5 @@
 <script>
+    import { _ } from "svelte-i18n";
     import { createEventDispatcher } from "svelte";
     import { fly } from "svelte/transition";
     import ApiClient from "@/utils/ApiClient";
@@ -431,7 +432,7 @@
                 {:else}
                     <tr>
                         <td colspan="99" class="txt-center txt-hint p-xs">
-                            <h6>No records found.</h6>
+                            <h6>{$_("common.message.notFountData")}</h6>
                             {#if filter?.length}
                                 <button
                                     type="button"
@@ -447,7 +448,7 @@
                                     on:click={() => dispatch("new")}
                                 >
                                     <i class="ri-add-line" />
-                                    <span class="txt">New record</span>
+                                    <span class="txt">{$_("common.action.createData")}</span>
                                 </button>
                             {/if}
                         </td>
@@ -464,7 +465,7 @@
                             class:btn-loading={isLoading}
                             on:click|preventDefault={() => load(currentPage + 1)}
                         >
-                            <span class="txt">Load more</span>
+                            <span class="txt">{$_("page.log.adminLog")}</span>
                         </button>
                     </td>
                 </tr>

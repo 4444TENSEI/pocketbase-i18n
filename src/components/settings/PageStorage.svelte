@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import { slide } from "svelte/transition";
     import ApiClient from "@/utils/ApiClient";
     import CommonHelper from "@/utils/CommonHelper";
@@ -86,7 +87,7 @@
 <PageWrapper>
     <header class="page-header">
         <nav class="breadcrumbs">
-            <div class="breadcrumb-item">Settings</div>
+            <div class="breadcrumb-item">{$_("common.menu.setting")}</div>
             <div class="breadcrumb-item">{$pageTitle}</div>
         </nav>
     </header>

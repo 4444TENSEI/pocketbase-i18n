@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import Field from "@/components/base/Field.svelte";
     import PageWrapper from "@/components/base/PageWrapper.svelte";
     import ImportPopup from "@/components/settings/ImportPopup.svelte";
@@ -255,7 +256,7 @@
 <PageWrapper>
     <header class="page-header">
         <nav class="breadcrumbs">
-            <div class="breadcrumb-item">Settings</div>
+            <div class="breadcrumb-item">{$_("common.menu.setting")}</div>
             <div class="breadcrumb-item">{$pageTitle}</div>
         </nav>
     </header>
@@ -293,7 +294,7 @@
                 </div>
 
                 <Field class="form-field {!isValid ? 'field-error' : ''}" name="collections" let:uniqueId>
-                    <label for={uniqueId} class="p-b-10">Collections</label>
+                    <label for={uniqueId} class="p-b-10">{$_("common.menu.collection")}</label>
                     <textarea
                         id={uniqueId}
                         class="code"
