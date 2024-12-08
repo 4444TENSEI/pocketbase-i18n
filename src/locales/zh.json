@@ -20,8 +20,7 @@
       "save": "保存",
       "cancel": "取消",
       "reset": "重置",
-      "loadMore": "查看更多",
-      "exportJson": "导出为JSON文件"
+      "loadMore": "查看更多"
     },
     "tip": {
       "enabled": "启用",
@@ -55,18 +54,18 @@
       "link": {
         "goBack": "返回登录"
       },
-      "btn": {
+      "action": {
         "sendForgetEmail": "发送重置邮件"
       }
     },
     "collection": {
       "content": {
-        "btn": {
+        "action": {
           "apiPreviewme": "接口文档"
         }
       },
       "sideBar": {
-        "btn": {
+        "action": {
           "newRecord": "创建数据表"
         }
       }
@@ -137,7 +136,7 @@
                 "roleToLimit": "限制对象"
               }
             },
-            "btn": {
+            "action": {
               "addRule": "新增限制规则"
             },
             "content": {
@@ -153,7 +152,7 @@
             "requestTimeoutSecond": "请求超时器 (以秒为单位)",
             "requestBodySizeLimitByte": "请求体大小限制 (单位: 字节)"
           },
-          "btn": {
+          "action": {
             "hideEditControl": "隐藏数据创建和编辑控件"
           }
         },
@@ -161,7 +160,7 @@
           "title": "SMTP配置",
           "senderNickname": "发件人昵称",
           "senderEmail": "发件人邮箱",
-          "btn": {
+          "action": {
             "ownSmtpEnable": "由自己配置SMTP服务 (当前必须)",
             "expandDetail": "展开更多选项",
             "hideDetail": "隐藏更多选项"
@@ -181,9 +180,9 @@
             "3": "如有迁移需要，您需要手动拷贝本地文件到 S3 存储",
             "4": "有许多命令行工具可以帮助您，例如rclone、s5cmd等"
           },
-          "btn": {
+          "action": {
             "s3Enable": "启用S3对象存储",
-            "usePathStyleAddressing": "使用路径风格对接S3地址"
+            "usePathStyleUrl": "使用路径风格的S3 URL"
           },
           "endpoint": "端点 (Endpoint)",
           "bucket": "桶 (Bucket)",
@@ -193,42 +192,44 @@
         },
         "buckup": {
           "content": {
-            "1": "备份和恢复您的 PocketBase 数据",
-            "2": "还没有备份"
+            "1": "备份和恢复数据",
+            "2": "还没有备份",
+            "3": "请注意，在备份期间，其他并发写入请求可能会失败，因为数据库将被临时'锁定' (通常在 ZIP 生成期间发生)",
+            "4": "如果您使用 S3 存储来上传集合文件，则必须单独备份它们，因为它们不是本地存储的，也不会包含在最终备份中",
+            "5": "文件名格式必须为 [a-z0-9_-]zip"
           },
-          "btn": {
-            "name": "初始化新备份",
-            "dialog": {
-              "txt1": "请注意，在备份期间，其他并发写入请求可能会失败，因为数据库将被临时'锁定' (这通常仅在 ZIP 生成期间发生)",
-              "txt2": "如果您使用 S3 存储来上传集合文件，则必须单独备份它们，因为它们不是本地存储的，也不会包含在最终备份中！",
-              "txt3": "格式必须为 [a-z0-9_-]zip",
-              "label1": "备份名称",
-              "btn": "取消",
-              "btn": "开始备份"
+          "action": {
+            "createBackup": "初始化新备份",
+            "moreBackupOption": "更多备份选项",
+            "enableAutoBackup": "启用定时自动备份",
+            "backupToS3": "将备份文件上传到 S3 存储",
+            "usePathStyleUrl": "使用路径风格的S3 URL",
+            "backupName": "备份名称",
+            "cancel": "取消",
+            "startBackup": "开始备份"
+          }
+        },
+        "sync": {
+          "export": {
+            "title": "导出集合",
+            "content": {
+              "1": "这里可以查看和导出当前的配置信息, 也可以导出和导入到另一个 PocketBase 环境中"
+            },
+            "action": {
+              "exportJson": "导出为JSON文件"
             }
           },
-          "btn": {
-            "name": "备份选项",
-            "btn": {
-              "name": "启用自动备份"
+          "import": {
+            "title": "在这里导入之前的配置, 可以直接粘贴JSON或者从导入文件",
+            "content": {
+              "1": "这里可以查看和导出当前的配置信息, 也可以导出和导入到另一个 PocketBase 环境中"
             },
-            "btn": "将备份存储在 S3 存储中"
+            "action": {
+              "reviewJson": "校验",
+              "clearInput": "清空",
+              "importJson": "从JSON文件导入"
+            }
           }
-        }
-      },
-      "sync": {
-        "name": "同步",
-        "export": {
-          "title": "导出集合",
-          "txt1": "您将在下面找到您当前的集合配置，您可以将其导入到另一个 PocketBase 环境中",
-          "btn": "下载为 JSON"
-        },
-        "import": {
-          "title": "导入收藏品",
-          "txt1": "粘贴到您要导入的集合配置下方或",
-          "txt2": "收藏",
-          "btn": "从 JSON 文件加载",
-          "btn": "审查"
         }
       }
     }
