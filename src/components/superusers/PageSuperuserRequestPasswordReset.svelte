@@ -55,7 +55,7 @@
                 disabled={isLoading}
             >
                 <i class="ri-mail-send-line" />
-                <span class="txt">{$_("page.forget.btn.sendForgetEmail")}</span>
+                <span class="txt">{$_("page.forget.action.sendForgetEmail")}</span>
             </button>
         </form>
     {/if}

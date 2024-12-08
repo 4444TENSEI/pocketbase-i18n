@@ -4,7 +4,7 @@ register('en', () => import('./locales/en.json'));
 register('ja', () => import('./locales/ja.json'));
 register('zh', () => import('./locales/zh.json'));
 
-await init({
-  fallbackLocale: 'en',
-  initialLocale: getLocaleFromNavigator(),
+init({
+    fallbackLocale: 'en',
+    initialLocale: getLocaleFromNavigator(),
 });

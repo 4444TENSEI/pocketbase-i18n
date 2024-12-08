@@ -206,7 +206,7 @@
                     on:click={() => collectionDocsPanel?.show($activeCollection)}
                 >
                     <i class="ri-code-s-slash-line" />
-                    <span class="txt">{$_("page.collection.content.btn.apiPreviewme")}</span>
+                    <span class="txt">{$_("page.collection.content.action.apiPreviewme")}</span>
                 </button>
 
                 {#if $activeCollection.type !== "view"}

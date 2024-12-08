@@ -154,7 +154,7 @@
         <footer class="sidebar-footer">
             <button type="button" class="btn btn-block btn-outline" on:click={() => collectionPanel?.show()}>
                 <i class="ri-add-line" />
-                <span class="txt">{$_("page.collection.sideBar.btn.newRecord")}</span>
+                <span class="txt">{$_("page.collection.sideBar.action.newRecord")}</span>
             </button>
         </footer>
     {/if}

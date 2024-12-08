@@ -1,7 +1,14 @@
 <script>
     import "./scss/main.scss";
-
+    // ---
     import { _ } from 'svelte-i18n';
+    import { locale } from 'svelte-i18n';
+    import { onMount } from 'svelte';
+    onMount(async () => {
+        const userLocale = getUserLocale();
+        await locale.set(userLocale);
+    });
+    // ---
     import tooltip from "@/actions/tooltip";
     import Confirmation from "@/components/base/Confirmation.svelte";
     import TinyMCE from "@/components/base/TinyMCE.svelte";

@@ -48,7 +48,7 @@
             transform: rotate(180deg);
         }
     }
-    .btn.refreshing i {
+    .action.refreshing i {
         animation: refresh 150ms ease-out;
     }
 </style>
