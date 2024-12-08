@@ -199,7 +199,7 @@
 
 <div class="chart-wrapper" class:loading={isLoading}>
     <div class="total-logs entrance-right" class:hidden={isLoading}>
-        {$_("page.log.foundTotalLogs", { values: { total: totalLogs } })}
+        {$_("page.log.foundTotalLog", { values: { total: totalLogs } })}
         {totalLogs == 1 ? "log" : "logs"}
     </div>
 

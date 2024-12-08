@@ -34,6 +34,9 @@
     },
     "message": {
       "notFountData": "还没有记录"
+    },
+    "link": {
+      "learnMore": "了解更多"
     }
   },
   "page": {
@@ -47,7 +50,7 @@
       "title": "找回密码",
       "content": {
         "1": "输入您的邮件地址，我们将发送您'用于重置密码的链接'",
-        "2": "邮件已尝试发送至 ' {email} ', 如未收到则表示：1. 用户邮箱不存在 2. 收入了邮件回收站"
+        "2": "邮件已尝试发送至 ' {email} ', 如未收到则表示: 1. 用户邮箱不存在 2. 收入了邮件回收站"
       },
       "link": {
         "goBack": "返回登录"
@@ -69,8 +72,8 @@
       }
     },
     "log": {
-      "logLevel": "日志分级：",
-      "foundTotalLogs": "找到 { total } 条",
+      "logLevel": "日志分级: ",
+      "foundTotalLog": "找到 { total } 条",
       "adminLog": "显示管理员日志",
       "table": {
         "field": {
@@ -92,110 +95,111 @@
       }
     },
     "setting": {
-      "group": {
-        "basic": "基础配置",
-        "export": "导出 / 导入配置"
-      },
-      "menu": {
-        "server": "服务",
+      "sideBar": {
+        "group": {
+          "basic": "基础配置",
+          "export": "导出 / 导入配置"
+        },
+        "application": "服务",
         "smtp": "邮件",
         "fileStorage": "对象储存",
-        "autoBackup": "自动备份"
+        "autoBackup": "数据备份",
+        "exportConfig": "导出配置",
+        "importConfig": "导入配置"
       },
-
-
-
-      
-      "system": {
+      "content": {
         "application": {
-          "label1": "应用名称",
-          "label2": "申请网址",
+          "serverName": "后端标识",
+          "serverUrl": "后端地址",
           "proxy": {
             "title": "用户 IP 代理标头",
-            "txt1": "解析用户IP",
-            "txt2": "检测到的代理标头：",
-            "txt3": "当 PocketBase 部署在 Fly 等平台上或可通过 NGINX 等代理访问时，来自不同用户的请求将源自相同的 IP 地址（连接到 PocketBase 应用程序的代理的 IP）",
-            "txt4": "在这种情况下，要检索实际用户 IP（用于速率限制、日志记录等），您需要正确配置代理并在下方列出 PocketBase 可用于提取用户 IP 的受信任标头",
-            "txt5": "使用此类代理时，为避免欺骗，建议：",
-            "txt6": "使用仅由代理控制且无法由用户手动设置的标头",
-            "txt7": "确保PocketBase服务器只能通过代理访问",
-            "txt8": "如果 PocketBase 未部署在代理后面，您可以清除标头字段",
-            "txt9": "逗号分隔的标头列表，例如：",
-            "label1": "可信代理标头",
-            "label2": "IP优先级选择"
+            "curIp": "当前服务IP:",
+            "curProxyHeader": "当前代理标头:",
+            "content": {
+              "1": "当 PocketBase 部署在 Fly 等平台上或可通过 NGINX 等代理访问时，来自不同用户的请求将源自相同的 IP 地址 (连接到 PocketBase 应用程序的代理的 IP)",
+              "2": "在这种情况下，要检索实际用户 IP (用于速率限制、日志记录等)，您需要正确配置代理并在下方列出 PocketBase 可用于提取用户 IP 的受信任标头",
+              "3": "使用此类代理时，为避免欺骗，建议: ",
+              "4": "使用仅由代理控制且无法由用户手动设置的标头",
+              "5": "确保PocketBase服务器只能通过代理访问",
+              "6": "如果 PocketBase 未部署在代理后面，您可以清除标头字段",
+              "7": "逗号分隔的标头列表，例如: ",
+              "8": "可信代理标头",
+              "9": "IP优先级选择"
+            }
           },
           "rate": {
-            "title": "速率限制",
+            "title": "限制请求速率",
             "table": {
-              "field1": {
-                "name": "速率限制标签"
-              },
-              "field2": {
-                "name": "最大请求数111（每个 IP）"
-              },
-              "field3": {
-                "name": "间隔111（以秒为单位）"
-              },
-              "field4": {
-                "name": "目标用户"
+              "field": {
+                "route": "路由",
+                "maximum": "最大值 (每个IP)",
+                "intervalTime": "请求间隔 (单位: 秒)",
+                "roleToLimit": "限制对象"
               }
             },
             "btn": {
-              "name": "添加速率限制规则",
-              "dialog": {
-                "title": "详细了解速率限制规则",
-                "txt1": "速率限制标签格式",
-                "txt2": "速率限制规则按以下顺序解决（在第一个匹配处停止）：",
-                "txt3": "如果多个规则具有相同标签但目标用户受众不同（例如“guest”与“auth”），则仅考虑匹配的受众规则",
-                "txt4": "速率限制标签可以采用以下格式之一："
-              }
+              "addRule": "新增限制规则"
+            },
+            "content": {
+              "1": "速率限制标签格式",
+              "2": "速率限制规则按以下顺序解析 (在第一次匹配时停止)",
+              "3": "如果多个规则具有相同标签但目标用户受众不同 (例如'guest'与'auth')，则仅考虑匹配的受众规则",
+              "4": "速率限制标签可以采用以下格式之一:"
             }
           },
           "batch": {
-            "title": "批量API",
-            "label1": "允许的最大批量请求",
-            "label2": "最大处理时间（以秒为单位）",
-            "label3": "最大主体大小（以字节为单位）"
+            "title": "限制接口允许的并发请求数",
+            "maxConcurrentRequest": "允许同时处理的请求数",
+            "requestTimeoutSecond": "请求超时器 (以秒为单位)",
+            "requestBodySizeLimitByte": "请求体大小限制 (单位: 字节)"
           },
-          "btn": "隐藏集合创建和编辑控件"
-        },
-        "mailSetting": {
-          "title": "配置发送电子邮件的常用设置",
-          "label1": "发件人姓名",
-          "label2": "发件人地址",
-          "btn": "使用SMTP邮件服务器（推荐）",
           "btn": {
-            "txt1": "显示更多选项",
-            "txt2": "隐藏更多选项"
+            "hideEditControl": "隐藏数据创建和编辑控件"
+          }
+        },
+        "smtp": {
+          "title": "SMTP配置",
+          "senderNickname": "发件人昵称",
+          "senderEmail": "发件人邮箱",
+          "btn": {
+            "ownSmtpEnable": "由自己配置SMTP服务 (当前必须)",
+            "expandDetail": "展开更多选项",
+            "hideDetail": "隐藏更多选项"
           },
-          "label3": "SMTP 服务器主机",
-          "label4": "港口",
-          "label5": "用户名",
-          "label6": "密码",
-          "label7": "TLS 加密",
-          "label8": "认证方法",
-          "label9": "EHLO/HELO 域"
+          "smtpHost": "SMTP 服务器主机",
+          "smtpPort": "港口",
+          "smtpUsername": "用户名",
+          "smtpPassword": "密码",
+          "tlsEncryption": "TLS 加密",
+          "authMethod": "认证方法",
+          "ehloOrHeloDomain": "提供用于邮件服务器验证的域名 (EHLO/HELO)"
         },
         "fileStorage": {
-          "txt1": "PocketBase默认使用本地文件系统来存储上传的文件",
-          "txt2": "如果您的磁盘空间有限，您可以选择连接到 S3 兼容存储",
-          "btn": "使用S3存储",
-          "txt3": "如果您有现有上传的文件，则必须从",
-          "txt4": "有许多命令行工具可以帮助您，例如：",
-          "label1": "端点",
-          "label2": "桶",
-          "label3": "地区",
-          "label4": "访问密钥",
-          "label5": "秘密",
-          "btn": "强制路径式寻址"
+          "content": {
+            "1": "默认使用本地文件系统来存储上传的文件",
+            "2": "如果您的磁盘空间有限，您可以选择启用 S3 对象存储，以便将文件存储在云存储中",
+            "3": "如有迁移需要，您需要手动拷贝本地文件到 S3 存储",
+            "4": "有许多命令行工具可以帮助您，例如rclone、s5cmd等"
+          },
+          "btn": {
+            "s3Enable": "启用S3对象存储",
+            "usePathStyleAddressing": "使用路径风格对接S3地址"
+          },
+          "endpoint": "端点 (Endpoint)",
+          "bucket": "桶 (Bucket)",
+          "region": "地区 (Region)",
+          "accessKey": "访问键 (Access Key)",
+          "secret": "安全密钥 (Secret)"
         },
-        "buckups": {
-          "txt1": "备份和恢复您的 PocketBase 数据",
-          "txt2": "还没有备份",
+        "buckup": {
+          "content": {
+            "1": "备份和恢复您的 PocketBase 数据",
+            "2": "还没有备份"
+          },
           "btn": {
             "name": "初始化新备份",
             "dialog": {
-              "txt1": "请注意，在备份期间，其他并发写入请求可能会失败，因为数据库将被临时“锁定”（这通常仅在 ZIP 生成期间发生）",
+              "txt1": "请注意，在备份期间，其他并发写入请求可能会失败，因为数据库将被临时'锁定' (这通常仅在 ZIP 生成期间发生)",
               "txt2": "如果您使用 S3 存储来上传集合文件，则必须单独备份它们，因为它们不是本地存储的，也不会包含在最终备份中！",
               "txt3": "格式必须为 [a-z0-9_-]zip",
               "label1": "备份名称",

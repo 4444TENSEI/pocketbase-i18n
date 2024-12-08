@@ -1,5 +1,5 @@
 <script>
-    import { _ } from 'svelte-i18n';
+    import { _ } from "svelte-i18n";
     import tooltip from "@/actions/tooltip";
     import Field from "@/components/base/Field.svelte";
     import ObjectSelect from "@/components/base/ObjectSelect.svelte";
@@ -24,7 +24,7 @@
         { label: "LOGIN", value: "LOGIN" },
     ];
 
-    $pageTitle = "Mail settings";
+    $pageTitle = "SMTP Mail settings";
 
     let testPopup;
     let originalFormSettings = {};
@@ -77,6 +77,8 @@
             meta: settings?.meta || {},
             smtp: settings?.smtp || {},
         };
+
+        formSettings.smtp.enabled = true;
 
         if (!formSettings.smtp.authMethod) {
             formSettings.smtp.authMethod = authMethods[0].value;
