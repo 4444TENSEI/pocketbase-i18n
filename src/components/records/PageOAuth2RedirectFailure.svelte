@@ -1,8 +1,9 @@
 <script>
+    import { json } from "svelte-i18n";
     import { onMount } from "svelte";
     import { pageTitle } from "@/stores/app";
 
-    $pageTitle = "OAuth2 auth failed";
+    $pageTitle = $json("common.menu.oauth2");
 
     onMount(() => {
         window.close();

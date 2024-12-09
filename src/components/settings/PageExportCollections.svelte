@@ -1,5 +1,5 @@
 <script>
-    import { _ } from 'svelte-i18n';
+    import { _, json } from "svelte-i18n";
     import ApiClient from "@/utils/ApiClient";
     import CommonHelper from "@/utils/CommonHelper";
     import { pageTitle } from "@/stores/app";
@@ -8,7 +8,7 @@
     import Field from "@/components/base/Field.svelte";
     import SettingsSidebar from "@/components/settings/SettingsSidebar.svelte";
 
-    $pageTitle = "Export collections";
+    $pageTitle = $json("common.action.exportJson");
 
     const uniqueId = "export_" + CommonHelper.randomString(5);
 
@@ -184,7 +184,7 @@
                         on:click={() => download()}
                     >
                         <i class="ri-download-line" />
-                        <span class="txt">Download as JSON</span>
+                        <span class="txt">{$_("common.action.exportJson")}</span>
                     </button>
                 </div>
             {/if}

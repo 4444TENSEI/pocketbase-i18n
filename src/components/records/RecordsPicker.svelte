@@ -244,7 +244,7 @@
                 class="btn btn-pill btn-transparent btn-hint p-l-xs p-r-xs"
                 on:click={() => upsertPanel?.show()}
             >
-                <div class="txt">{$_("common.action.createData")}</div>
+                <div class="txt">{$_("common.action.newData")}</div>
             </button>
         {/if}
     </div>
@@ -348,7 +348,7 @@
 
     <svelte:fragment slot="footer">
         <button type="button" class="btn btn-transparent" on:click={() => hide()}>
-            <span class="txt">Cancel</span>
+            <span class="txt">{$_("common.action.cancel")}</span>
         </button>
         <button type="button" class="btn" on:click={() => save()}>
             <span class="txt">Set selection</span>

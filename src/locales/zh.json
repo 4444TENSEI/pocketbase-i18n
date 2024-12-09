@@ -1,9 +1,11 @@
 {
   "common": {
     "user": {
-      "email": "邮件",
+      "email": "邮箱",
       "password": "密码",
-      "name": "姓名"
+      "passwordConfirm": "重复密码",
+      "name": "姓名",
+      "avatar": "头像链接"
     },
     "role": {
       "admin": "管理员",
@@ -12,37 +14,100 @@
     "action": {
       "login": "登录",
       "logout": "退出登录",
-      "createData": "新增数据",
-      "editData": "编辑",
-      "deleteData": "删除",
+      "newData": "新增数据",
+      "new": "新增",
+      "create": "创建",
+      "delete": "删除",
+      "edit": "编辑",
+      "search": "查找",
+      "review": "校验",
+      "ok": "确定",
+      "cancel": "取消",
+      "copy": "复制",
+      "clear": "清除",
       "refresh": "刷新",
       "enable": "启用",
       "save": "保存",
-      "cancel": "取消",
       "reset": "重置",
-      "loadMore": "查看更多"
+      "open": "打开",
+      "close": "关闭",
+      "loadMore": "查看更多",
+      "restore": "恢复",
+      "uploadFile": "上传文件",
+      "uploadImage": "上传图片",
+      "verified": "通过验证",
+      "changePassword": "修改密码",
+      "deleteSelected": "删除所选",
+      "saveAndContinue": "保存并继续编辑",
+      "sendTestEmail": "发送测试邮件",
+      "learnMore": "了解更多",
+      "export": "导出",
+      "import": "导入",
+      "exportJson": "导出到JSON文件",
+      "importJson": "从JSON文件导入"
     },
     "tip": {
       "enabled": "启用",
-      "disbled": "禁用"
+      "disbled": "禁用",
+      "public": "公开",
+      "private": "私密"
+    },
+    "data": {
+      "record": "表记录"
     },
     "menu": {
-      "collection": "数据",
+      "collection": "数据管理",
       "log": "日志",
-      "setting": "设置"
+      "setting": "设置",
+      "appConfig": "应用",
+      "smtpConfig": "邮件服务",
+      "storageConfig": "对象储存",
+      "backupConfig": "数据备份",
+      "oauth2": "OAuth2.0"
+    },
+    "subfield": {
+      "otherTable": "其他",
+      "pinnedTable": "置顶",
+      "systemTable": "系统",
+      "basicSetting": "基础设置",
+      "syncSetting": "配置信息"
     },
     "message": {
-      "notFountData": "还没有记录"
+      "loading": "正在加载...",
+      "createSuccess": "创建成功",
+      "updateSuccess": "更新成功",
+      "deleteSuccess": "删除成功",
+      "createError": "创建失败",
+      "updateError": "更新失败",
+      "deleteError": "删除失败",
+      "notFountData": "暂无数据",
+      "applyNewSetting": "已应用新的设置",
+      "selectedPrompt": "选中了 { selected } 条数据",
+      "deletePrompt": "确定要删除所选内容吗？",
+      "recovery": "要恢复上次自动保存的数据吗？",
+      "unsave": "数据未保存，确认要离开吗？",
+      "noOa2Provider": "还未配置OAuth2应用程序",
+      "insufficientAuthority": "权限不足",
+      "noAccess": "无权访问",
+      "networkError": "网络出错，请稍后重试"
     },
-    "link": {
-      "learnMore": "了解更多"
+    "placeholder": {
+      "amountOfData": "数据量:",
+      "amountOfRequest": "请求量:",
+      "searchTerm": "搜索词或过滤器，示例 > '2022-01-01'...",
+      "autoGenerate": "留空将自动生成",
+      "checkPublic": "将电子邮件公开或设置私密",
+      "displayedField": "要展示的字段",
+      "searchCollection": "查找数据表",
+      "searchDataPrompt": "查找数据，允许的匹配规则如 created > “2022-01-01”",
+      "searchLogPrompt": "查找日志，允许的匹配规则如 level > 0 && data.auth = “guest”"
     }
   },
   "page": {
     "login": {
       "title": "管理员登录",
       "link": {
-        "forgetPsw": "忘记密码了？"
+        "forgetPsw": "忘记密码"
       }
     },
     "forget": {
@@ -58,6 +123,16 @@
         "sendForgetEmail": "发送重置邮件"
       }
     },
+    "init": {
+      "title": "创建第一个管理员用户",
+      "action": {
+        "createUser": "创建并登录"
+      },
+      "content": {
+        "1": "欢迎使用PocketBase",
+        "2": "至少输入10个字符"
+      }
+    },
     "collection": {
       "content": {
         "action": {
@@ -68,11 +143,13 @@
         "action": {
           "newRecord": "创建数据表"
         }
+      },
+      "dialog": {
+        "content": {}
       }
     },
     "log": {
       "logLevel": "日志分级: ",
-      "foundTotalLog": "找到 { total } 条",
       "adminLog": "显示管理员日志",
       "table": {
         "field": {
@@ -84,31 +161,19 @@
       "setting": {
         "title": "日志设置",
         "maxDaysRetention": "日志保留天数",
-        "minLogLevel": "最小日志级别",
-        "enableIpLog": "IP 访问记录",
-        "enableAuthLog": "身份验证记录",
+        "minLogLevel": "日志级别",
+        "enableIpLog": "启用 IP访问 日志",
+        "enableAuthLog": "启用 授权ID 日志",
         "content": {
-          "1": "设置为 0 将停止保留日志",
-          "2": "级别低于最小值的日志将被忽略。"
+          "1": "设置为 0 将清除目前的日志数据，并关闭日志功能",
+          "2": "将会收录大于日志级别的数据"
         }
       }
     },
     "setting": {
-      "sideBar": {
-        "group": {
-          "basic": "基础配置",
-          "export": "导出 / 导入配置"
-        },
-        "application": "服务",
-        "smtp": "邮件",
-        "fileStorage": "对象储存",
-        "autoBackup": "数据备份",
-        "exportConfig": "导出配置",
-        "importConfig": "导入配置"
-      },
       "content": {
         "application": {
-          "serverName": "后端标识",
+          "serverName": "自定义标识名称",
           "serverUrl": "后端地址",
           "proxy": {
             "title": "用户 IP 代理标头",
@@ -124,6 +189,10 @@
               "7": "逗号分隔的标头列表，例如: ",
               "8": "可信代理标头",
               "9": "IP优先级选择"
+            },
+            "tip": {
+              "1": "配置的代理报头与检测到的不匹配",
+              "2": "这是在代理返回超过1个IP作为报头值的情况下。最右边的IP通常被认为是更值得信赖的，但这可能因代理而异"
             }
           },
           "rate": {
@@ -190,17 +259,18 @@
           "accessKey": "访问键 (Access Key)",
           "secret": "安全密钥 (Secret)"
         },
-        "buckup": {
+        "backup": {
           "content": {
-            "1": "备份和恢复数据",
-            "2": "还没有备份",
+            "1": "备份和恢复您的数据",
+            "2": "暂无备份文件",
             "3": "请注意，在备份期间，其他并发写入请求可能会失败，因为数据库将被临时'锁定' (通常在 ZIP 生成期间发生)",
             "4": "如果您使用 S3 存储来上传集合文件，则必须单独备份它们，因为它们不是本地存储的，也不会包含在最终备份中",
             "5": "文件名格式必须为 [a-z0-9_-]zip"
           },
           "action": {
-            "createBackup": "初始化新备份",
-            "moreBackupOption": "更多备份选项",
+            "createBackup": "创建备份文件 (.zip)",
+            "restoreBackup": "从备份 (.zip)还原数据",
+            "moreBackupOption": "更多选项 (自动备份 / S3存储)",
             "enableAutoBackup": "启用定时自动备份",
             "backupToS3": "将备份文件上传到 S3 存储",
             "usePathStyleUrl": "使用路径风格的S3 URL",
@@ -211,24 +281,23 @@
         },
         "sync": {
           "export": {
-            "title": "导出集合",
+            "title": "导出配置文件",
             "content": {
               "1": "这里可以查看和导出当前的配置信息, 也可以导出和导入到另一个 PocketBase 环境中"
-            },
-            "action": {
-              "exportJson": "导出为JSON文件"
             }
           },
           "import": {
             "title": "在这里导入之前的配置, 可以直接粘贴JSON或者从导入文件",
             "content": {
               "1": "这里可以查看和导出当前的配置信息, 也可以导出和导入到另一个 PocketBase 环境中"
-            },
-            "action": {
-              "reviewJson": "校验",
-              "clearInput": "清空",
-              "importJson": "从JSON文件导入"
             }
+          }
+        },
+        "account": {
+          "title": "账户设置",
+          "content": {
+            "1": "这里可以查看和导出当前的配置信息, 也可以导出和导入到另一个 PocketBase 环境中",
+            "2": "将会发送测试邮件至 { email }"
           }
         }
       }

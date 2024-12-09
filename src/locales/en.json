@@ -12,7 +12,7 @@
     "action": {
       "login": "Log in",
       "logout": "Log out",
-      "createData": "Add new data",
+      "create": "Add new data",
       "editData": "edit",
       "deleteData": "delete",
       "refresh": "refresh",

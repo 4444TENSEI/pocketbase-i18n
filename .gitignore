@@ -5,10 +5,11 @@ dist/
 
 .DS_Store
 
-.env.local
-.env.*.local
+.env.development
+.env.production
 
 pb_*/
 .env
 *.exe
 *.go
+*.zip

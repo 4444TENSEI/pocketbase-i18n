@@ -1,4 +1,5 @@
 <script>
+    import { _, json } from "svelte-i18n";
     import { createEventDispatcher, tick } from "svelte";
     import { slide } from "svelte/transition";
     import { ClientResponseError } from "pocketbase";
@@ -280,7 +281,7 @@
                 result = await ApiClient.collection(collection.id).update(record.id, data);
             }
 
-            addSuccessToast(isNew ? "Successfully created record." : "Successfully updated record.");
+            addSuccessToast(isNew ? $json("common.message.createSuccess") : $json("common.message.updateSuccess"));
 
             deleteDraft();
 
@@ -430,8 +431,9 @@
         if (!collection?.id || !original?.email) {
             return;
         }
-
-        confirm(`Do you really want to sent password reset email to ${original.email}?`, () => {
+        
+        
+        confirm($json("page.setting.content.account.content.2",{ values: { email: email }}), () => {
             return ApiClient.collection(collection.id)
                 .requestPasswordReset(original.email)
                 .then(() => {
@@ -445,7 +447,7 @@
 
     function duplicateConfirm() {
         if (hasChanges) {
-            confirm("You have unsaved changes. Do you really want to discard them?", () => {
+            confirm($json("common.message.unsave"), () => {
                 duplicate();
             });
         } else {
@@ -503,7 +505,7 @@
     overlayClose={!isLoading}
     beforeHide={() => {
         if (hasChanges && confirmHide) {
-            confirm("You have unsaved changes. Do you really want to close the panel?", () => {
+            confirm($json("common.message.unsave"), () => {
                 forceHide();
             });
 
@@ -524,8 +526,9 @@
             <h4 class="panel-title txt-hint">Loading...</h4>
         {:else}
             <h4 class="panel-title">
-                {isNew ? "New" : "Edit"}
-                <strong>{collection?.name}</strong> record
+                {isNew ? $json("common.action.create") : $json("common.action.edit")}
+                <strong>{collection?.name}</strong>
+                {$_("common.data.record")}
             </h4>
 
             {#if !isNew}
@@ -643,13 +646,13 @@
                             <i class="ri-information-line" />
                         </div>
                         <div class="flex flex-gap-xs">
-                            The record has previous unsaved changes.
+                            {$_("common.message.recovery")}
                             <button
                                 type="button"
                                 class="btn btn-sm btn-secondary"
                                 on:click={() => restoreDraft()}
                             >
-                                Restore draft
+                                {$_("common.action.restore")}
                             </button>
                         </div>
                         <button
@@ -681,7 +684,7 @@
                     type="text"
                     id={uniqueId}
                     placeholder={!isLoading && !CommonHelper.isEmpty(idField?.autogeneratePattern)
-                        ? "Leave empty to auto generate..."
+                        ? $json("common.placeholder.autoGenerate")
                         : ""}
                     minlength={idField?.min}
                     readonly={!isNew}
@@ -747,21 +750,21 @@
             disabled={isSaving || isLoading}
             on:click={() => hide()}
         >
-            <span class="txt">Cancel</span>
+            <span class="txt">{$_("common.action.cancel")}</span>
         </button>
 
         <div class="btns-group no-gap">
             <button
                 type="submit"
                 form={formId}
-                title="Save and close"
+                title={$json("common.action.close")}
                 class="btn"
                 class:btn-expanded={isNew}
                 class:btn-expanded-sm={!isNew}
                 class:btn-loading={isSaving || isLoading}
                 disabled={!canSave || isSaving}
             >
-                <span class="txt">{isNew ? "Create" : "Save changes"}</span>
+                <span class="txt">{isNew ? $json("common.action.create") : $json("common.action.save")}</span>
             </button>
 
             {#if !isNew}
@@ -775,7 +778,7 @@
                             role="menuitem"
                             on:click={() => save(false)}
                         >
-                            <span class="txt">Save and continue</span>
+                            <span class="txt">{$_("common.action.saveAndContinue")}</span>
                         </button>
                     </Toggler>
                 </button>

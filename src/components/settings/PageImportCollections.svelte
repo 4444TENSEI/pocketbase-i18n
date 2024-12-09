@@ -1,5 +1,5 @@
 <script>
-    import { _ } from 'svelte-i18n';
+    import { _, json } from "svelte-i18n";
     import Field from "@/components/base/Field.svelte";
     import PageWrapper from "@/components/base/PageWrapper.svelte";
     import ImportPopup from "@/components/settings/ImportPopup.svelte";
@@ -11,7 +11,7 @@
     import CommonHelper from "@/utils/CommonHelper";
     import { tick } from "svelte";
 
-    $pageTitle = "Import collections";
+    $pageTitle = $json("common.action.importJson");
 
     let fileInput;
     let importPopup;

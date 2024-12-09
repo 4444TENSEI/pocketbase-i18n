@@ -1,4 +1,5 @@
 <script>
+    import { _, json } from "svelte-i18n";
     import { onMount } from "svelte";
     import { slide } from "svelte/transition";
     import ApiClient from "@/utils/ApiClient";
@@ -137,7 +138,7 @@
             <Field class="form-field" name="{configKey}.forcePathStyle" let:uniqueId>
                 <input type="checkbox" id={uniqueId} bind:checked={config.forcePathStyle} />
                 <label for={uniqueId}>
-                    <span class="txt">Force path-style addressing</span>
+                    <span class="txt">{$_("page.setting.content.backup.action.usePathStyleUrl")}</span>
                     <i
                         class="ri-information-line link-hint"
                         use:tooltip={{

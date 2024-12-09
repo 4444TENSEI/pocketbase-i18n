@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import tooltip from "@/actions/tooltip";
     import OverlayPanel from "@/components/base/OverlayPanel.svelte";
 
@@ -156,7 +157,7 @@
     <!-- visible only on small screens -->
     <svelte:fragment slot="footer">
         <button type="button" class="btn btn-transparent" on:click={() => hide()}>
-            <span class="txt">Close</span>
+            <span class="txt">{$_("common.action.close")}</span>
         </button>
     </svelte:fragment>
 </OverlayPanel>

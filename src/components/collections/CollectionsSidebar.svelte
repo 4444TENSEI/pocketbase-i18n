@@ -1,5 +1,5 @@
 <script>
-    import { _ } from 'svelte-i18n';
+    import { _, json } from "svelte-i18n";
     import PageSidebar from "@/components/base/PageSidebar.svelte";
     import CollectionSidebarItem from "@/components/collections/CollectionSidebarItem.svelte";
     import CollectionUpsertPanel from "@/components/collections/CollectionUpsertPanel.svelte";
@@ -89,7 +89,7 @@
             <!-- 🐱 -->
             <input
                 type="text"
-                placeholder="Search collections..."
+                placeholder={$json("common.placeholder.searchCollection")}
                 name="collections-search"
                 bind:value={searchTerm}
             />
@@ -97,14 +97,13 @@
     </header>
 
     <hr class="m-t-5 m-b-xs" />
-
     <div
         class="sidebar-content"
         class:fade={$isCollectionsLoading}
         class:sidebar-content-compact={filtered.length > 20}
     >
         {#if pinnedCollections.length}
-            <div class="sidebar-title">Pinned</div>
+            <div class="sidebar-title">{$_("common.subfield.pinnedTable")}</div>
             {#each pinnedCollections as collection (collection.id)}
                 <CollectionSidebarItem {collection} bind:pinnedIds />
             {/each}
@@ -112,7 +111,7 @@
 
         {#if unpinnedRegularCollections.length}
             {#if pinnedCollections.length}
-                <div class="sidebar-title">Others</div>
+                <div class="sidebar-title">{$_("common.subfield.otherTable")}</div>
             {/if}
             {#each unpinnedRegularCollections as collection (collection.id)}
                 <CollectionSidebarItem {collection} bind:pinnedIds />
@@ -133,7 +132,7 @@
                     }
                 }}
             >
-                <span class="txt">System</span>
+                <span class="txt">{$_("common.subfield.systemTable")}</span>
                 {#if !normalizedSearch.length}
                     <i class="ri-arrow-{showSystemSection ? 'up' : 'down'}-s-line" aria-hidden="true" />
                 {/if}

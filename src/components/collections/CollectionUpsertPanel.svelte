@@ -1,4 +1,5 @@
 <script>
+    import { _, json } from "svelte-i18n";
     import tooltip from "@/actions/tooltip";
     import Field from "@/components/base/Field.svelte";
     import OverlayPanel from "@/components/base/OverlayPanel.svelte";
@@ -285,7 +286,7 @@
 
     function duplicateConfirm() {
         if (hasChanges) {
-            confirm("You have unsaved changes. Do you really want to discard them?", () => {
+            confirm($json("common.action.close"), () => {
                 duplicate();
             });
         } else {
@@ -352,7 +353,7 @@
     overlayClose={!isSaving}
     beforeHide={() => {
         if (hasChanges && confirmClose) {
-            confirm("You have unsaved changes. Do you really want to close the panel?", () => {
+            confirm($json("common.message.unsave"), () => {
                 confirmClose = false;
                 hide();
             });
@@ -477,7 +478,8 @@
                 </div>
 
                 {#if collection.system}
-                    <div class="help-block">System collection</div>
+                    <!-- <div class="help-block">System collection</div> -->
+                    <div class="help-block">{$_("common.menu.basic")}</div>
                 {/if}
             </Field>
 
@@ -564,13 +566,13 @@
 
     <svelte:fragment slot="footer">
         <button type="button" class="btn btn-transparent" disabled={isSaving} on:click={() => hide()}>
-            <span class="txt">Cancel</span>
+            <span class="txt">{$_("common.action.cancel")}</span>
         </button>
 
         <div class="btns-group no-gap">
             <button
                 type="button"
-                title="Save and close"
+                title={$json("common.action.save")}
                 class="btn"
                 class:btn-expanded={!collection.id}
                 class:btn-expanded-sm={!!collection.id}
@@ -578,7 +580,7 @@
                 disabled={!canSave || isSaving || isLoadingConfirmation}
                 on:click={() => saveConfirm()}
             >
-                <span class="txt">{!collection.id ? "Create" : "Save changes"}</span>
+                <span class="txt">{!collection.id ? $json("common.action.create") : $json("common.action.save")}</span>
             </button>
 
             {#if collection.id}
@@ -596,7 +598,7 @@
                             role="menuitem"
                             on:click={() => saveConfirm(false)}
                         >
-                            <span class="txt">Save and continue</span>
+                            <span class="txt">{$_("common.action.saveAndContinue")}</span>
                         </button>
                     </Toggler>
                 </button>

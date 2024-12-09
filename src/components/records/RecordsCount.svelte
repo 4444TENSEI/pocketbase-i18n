@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import { createEventDispatcher } from "svelte";
     import ApiClient from "@/utils/ApiClient";
     import CommonHelper from "@/utils/CommonHelper";
@@ -48,6 +49,6 @@
 </script>
 
 <div class="inline-flex flex-gap-5 records-counter {classes}">
-    <span class="txt">Total found:</span>
+    <span class="txt">{$_("common.placeholder.amountOfData")}</span>
     <span class="txt">{!isLoading ? totalCount : "..."}</span>
 </div>

@@ -1,4 +1,6 @@
 <script>
+    import { _ } from "svelte-i18n";
+
     import { createEventDispatcher, tick } from "svelte";
     import ApiClient from "@/utils/ApiClient";
     import OverlayPanel from "@/components/base/OverlayPanel.svelte";
@@ -260,7 +262,7 @@
     <svelte:fragment slot="footer">
         <!-- svelte-ignore a11y-autofocus -->
         <button autofocus type="button" class="btn btn-transparent" on:click={() => hide()}>
-            <span class="txt">Cancel</span>
+            <span class="txt">{$_("common.action.cancel")}</span>
         </button>
         <button type="button" class="btn btn-expanded" on:click={() => confirm()}>
             <span class="txt">Confirm</span>

@@ -1,10 +1,11 @@
 <script>
+    import { _, json } from "svelte-i18n";
     import { createEventDispatcher, onMount } from "svelte";
     import tooltip from "@/actions/tooltip";
 
     const dispatch = createEventDispatcher();
 
-    let tooltipData = { text: "Refresh", position: "right" };
+    let tooltipData = { text: $json("common.action.refresh"), position: "right" };
     export { tooltipData as tooltip };
 
     let classes = "";
@@ -13,7 +14,7 @@
     let refreshTimeoutId = null;
 
     function refresh() {
-        dispatch("refresh");
+        dispatch($json("common.action.refresh"));
 
         // clear tooltip
         const oldTooltipData = tooltipData;

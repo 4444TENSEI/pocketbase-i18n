@@ -1,4 +1,5 @@
 <script>
+    import { _ } from "svelte-i18n";
     import tooltip from "@/actions/tooltip";
     import Field from "@/components/base/Field.svelte";
     import OverlayPanel from "@/components/base/OverlayPanel.svelte";
@@ -149,7 +150,7 @@
             </button>
         {/if}
         <button type="button" class="btn btn-transparent" on:click={() => hide()}>
-            <span class="txt">Cancel</span>
+            <span class="txt">{$_("common.action.cancel")}</span>
         </button>
         <button
             type="button"

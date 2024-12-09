@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import { createEventDispatcher } from "svelte";
     import ApiClient from "@/utils/ApiClient";
     import CommonHelper from "@/utils/CommonHelper";
@@ -128,7 +129,7 @@
 
     <svelte:fragment slot="footer">
         <button type="button" class="btn btn-transparent" on:click={hide} disabled={isSubmitting}>
-            <span class="txt">Close</span>
+            <span class="txt">{$_("common.action.close")}</span>
         </button>
         {#if impersonateClient?.authStore?.token}
             <button

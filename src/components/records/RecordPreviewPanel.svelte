@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import { addErrorToast } from "@/stores/toasts";
     import ApiClient from "@/utils/ApiClient";
     import OverlayPanel from "@/components/base/OverlayPanel.svelte";
@@ -80,7 +81,7 @@
 
     <svelte:fragment slot="footer">
         <button type="button" class="btn btn-transparent" on:click={() => hide()}>
-            <span class="txt">Close</span>
+            <span class="txt">{$_("common.action.close")}</span>
         </button>
     </svelte:fragment>
 </OverlayPanel>

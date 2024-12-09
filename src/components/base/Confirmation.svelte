@@ -1,4 +1,5 @@
 <script>
+    import { _ } from "svelte-i18n";
     import { tick } from "svelte";
     import OverlayPanel from "@/components/base/OverlayPanel.svelte";
     import { confirmation, resetConfirmation } from "@/stores/confirmation";
@@ -43,7 +44,7 @@
                 confirmationPopup?.hide();
             }}
         >
-            <span class="txt">No</span>
+            <span class="txt">{$_("common.action.cancel")}</span>
         </button>
         <button
             type="button"
@@ -60,7 +61,7 @@
                 confirmationPopup?.hide();
             }}
         >
-            <span class="txt">Yes</span>
+            <span class="txt">{$_("common.action.ok")}</span>
         </button>
     </svelte:fragment>
 </OverlayPanel>

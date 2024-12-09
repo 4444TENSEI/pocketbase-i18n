@@ -1,5 +1,5 @@
 <script>
-    import { _ } from 'svelte-i18n';
+    import { _ ,json} from 'svelte-i18n';
     import { slide } from "svelte/transition";
     import ApiClient from "@/utils/ApiClient";
     import CommonHelper from "@/utils/CommonHelper";
@@ -11,7 +11,7 @@
     import SettingsSidebar from "@/components/settings/SettingsSidebar.svelte";
     import S3Fields from "@/components/settings/S3Fields.svelte";
 
-    $pageTitle = "Files storage";
+    $pageTitle = $json("common.menu.storageConfig");
 
     const testRequestKey = "s3_test_request";
 
@@ -185,7 +185,7 @@
                             disabled={isSaving}
                             on:click={() => reset()}
                         >
-                            <span class="txt">Reset</span>
+                            <span class="txt">{$_("common.action.reset")}</span>
                         </button>
                     {/if}
 
@@ -196,7 +196,7 @@
                         disabled={!hasChanges || isSaving}
                         on:click={() => save()}
                     >
-                        <span class="txt">Save changes</span>
+                        <span class="txt">{$_("common.action.save")}</span>
                     </button>
                 </div>
             {/if}

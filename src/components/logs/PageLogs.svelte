@@ -1,5 +1,5 @@
 <script>
-    import { _ } from "svelte-i18n";
+    import { _, json } from "svelte-i18n";
     import { querystring } from "svelte-spa-router";
     import { pageTitle } from "@/stores/app";
     import CommonHelper from "@/utils/CommonHelper";
@@ -14,7 +14,7 @@
     import LogsSettingsPanel from "@/components/logs/LogsSettingsPanel.svelte";
     import LogsLevelsInfo from "@/components/logs/LogsLevelsInfo.svelte";
 
-    $pageTitle = "Logs";
+    $pageTitle = $json("common.menu.log");
 
     const LOG_QUERY_KEY = "logId";
     const ADMIN_REQUESTS_QUERY_KEY = "superuserRequests";
@@ -91,7 +91,7 @@
 
         <Searchbar
             value={filter}
-            placeholder="Search term or filter like `level > 0 && data.auth = 'guest'`"
+            placeholder={$json("common.placeholder.searchLogPrompt")}
             extraAutocompleteKeys={["level", "message", "data."]}
             on:submit={(e) => (filter = e.detail)}
         />

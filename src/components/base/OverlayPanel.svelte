@@ -25,7 +25,7 @@
      *     <h5 slot="header">My title</h5>
      *     <p>Lorem ipsum dolor sit amet...</p>
      *     <svelte:fragment slot="footer">
-     *         <button class="btn btn-transparent">Cancel</button>
+     *         <button class="btn btn-transparent">{$_("common.action.cancel")}</button>
      *         <button class="btn btn-expanded">Save</button>
      *     </svelte:fragment>
      * </OverlayPanel>

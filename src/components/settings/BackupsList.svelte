@@ -1,4 +1,5 @@
 <script>
+    import { _, json } from "svelte-i18n";
     import { onMount } from "svelte";
     import { slide } from "svelte/transition";
     import ApiClient from "@/utils/ApiClient";
@@ -174,7 +175,7 @@
                 </div>
             {:else}
                 <div class="list-item list-item-placeholder">
-                    <span class="txt">No backups yet.</span>
+                    <span class="txt">{$_("page.setting.content.backup.content.2")}</span>
                 </div>
             {/each}
         {/if}
@@ -189,7 +190,7 @@
         >
             {#if canBackup}
                 <i class="ri-play-circle-line" />
-                <span class="txt">Initialize new backup</span>
+                <span class="txt">{$_("page.setting.content.backup.action.createBackup")}</span>
             {:else}
                 <span class="loader loader-sm" />
                 <span class="txt">Backup/restore operation is in process</span>

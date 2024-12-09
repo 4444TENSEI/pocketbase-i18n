@@ -259,9 +259,7 @@
     }
 
     function deleteSelectedConfirm() {
-        const msg = `Do you really want to delete the selected ${
-            totalBulkSelected === 1 ? "record" : "records"
-        }?`;
+        const msg = `${$_("common.message.deletePrompt")} ${totalBulkSelected === 1 ? "record" : "records"}?`;
 
         confirm(msg, deleteSelected);
     }
@@ -307,7 +305,7 @@
                 class="dropdown dropdown-right dropdown-nowrap columns-dropdown"
                 trigger={columnsTrigger}
             >
-                <div class="txt-hint txt-sm p-5 m-b-5">Toggle columns</div>
+                <div class="txt-hint txt-sm p-5 m-b-5">{$_("common.placeholder.displayedField")}</div>
                 {#each collumnsToHide as column (column.id + column.name)}
                     <Field class="form-field form-field-sm form-field-toggle m-0 p-5" let:uniqueId>
                         <input
@@ -448,7 +446,7 @@
                                     on:click={() => dispatch("new")}
                                 >
                                     <i class="ri-add-line" />
-                                    <span class="txt">{$_("common.action.createData")}</span>
+                                    <span class="txt">{$_("common.action.newData")}</span>
                                 </button>
                             {/if}
                         </td>
@@ -477,8 +475,7 @@
 {#if totalBulkSelected}
     <div class="bulkbar" transition:fly={{ duration: 150, y: 5 }}>
         <div class="txt">
-            Selected <strong>{totalBulkSelected}</strong>
-            {totalBulkSelected === 1 ? "record" : "records"}
+            {$_("common.message.selectedPrompt", { values: { selected: totalBulkSelected } })}
         </div>
         <button
             type="button"
@@ -486,7 +483,7 @@
             class:btn-disabled={isDeleting}
             on:click={() => deselectAllRecords()}
         >
-            <span class="txt">Reset</span>
+            <span class="txt">{$_("common.action.reset")}</span>
         </button>
         <div class="flex-fill" />
         <button
@@ -496,7 +493,7 @@
             class:btn-disabled={isDeleting}
             on:click={() => deleteSelectedConfirm()}
         >
-            <span class="txt">Delete selected</span>
+            <span class="txt">{$_("common.action.deleteSelected")}</span>
         </button>
     </div>
 {/if}

@@ -1,4 +1,5 @@
 <script>
+    import { _, json } from "svelte-i18n";
     import CodeBlock from "@/components/base/CodeBlock.svelte";
     import FieldsQueryParam from "@/components/collections/docs/FieldsQueryParam.svelte";
     import SdkTabs from "@/components/base/SdkTabs.svelte";
@@ -34,7 +35,7 @@
             body: `
                 {
                   "code": 400,
-                  "message": "Failed to update record.",
+                  "message": "Failed to update recoraaaaaad.",
                   "data": {
                     "${collection?.fields?.[0]?.name}": {
                       "code": "validation_required",

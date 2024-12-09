@@ -1,4 +1,5 @@
 <script>
+    import { _ } from "svelte-i18n";
     import { createEventDispatcher } from "svelte";
     import CommonHelper from "@/utils/CommonHelper";
     import tooltip from "@/actions/tooltip";
@@ -107,7 +108,7 @@
             </button>
             <div class="flex-fill"></div>
         {/if}
-        <button type="button" class="btn btn-transparent" on:click={hide}>Cancel</button>
+        <button type="button" class="btn btn-transparent" on:click={hide}>{$_("common.action.cancel")}</button>
         <button type="submit" form={formId} class="btn btn-expanded" disabled={!hasChanges}>
             <span class="txt">Set provider config</span>
         </button>

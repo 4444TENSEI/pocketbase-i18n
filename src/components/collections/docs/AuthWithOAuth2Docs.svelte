@@ -187,7 +187,7 @@
             <td>
                 <div class="inline-flex">
                     <span class="label label-warning">Optional</span>
-                    <span>createData</span>
+                    <span>create</span>
                 </div>
             </td>
             <td>

@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import Field from "@/components/base/Field.svelte";
     import OverlayPanel from "@/components/base/OverlayPanel.svelte";
     import { setErrors } from "@/stores/errors";
@@ -122,7 +123,7 @@
 
     <svelte:fragment slot="footer">
         <button type="button" class="btn btn-transparent" on:click={hide} disabled={isSubmitting}
-            >Close</button
+            >{$_("common.action.close")}</button
         >
         <button
             type="submit"

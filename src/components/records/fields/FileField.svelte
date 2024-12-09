@@ -1,4 +1,5 @@
 <script>
+    import { _ } from "svelte-i18n";
     import { onMount } from "svelte";
     import tooltip from "@/actions/tooltip";
     import ApiClient from "@/utils/ApiClient";
@@ -230,7 +231,7 @@
                     on:click={() => fileInput?.click()}
                 >
                     <i class="ri-upload-cloud-line" />
-                    <span class="txt">Upload new file</span>
+                    <span class="txt">{$_("common.action.uploadImage")}</span>
                 </button>
             </div>
         </div>

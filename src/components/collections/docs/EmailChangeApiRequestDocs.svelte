@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import CodeBlock from "@/components/base/CodeBlock.svelte";
 
     export let collection;
@@ -31,7 +32,7 @@
             body: `
                 {
                   "code": 401,
-                  "message": "The request requires valid record authorization token to be set.",
+                  "message": "${$_("common.message.noAccess")}",
                   "data": {}
                 }
             `,
@@ -41,7 +42,7 @@
             body: `
                 {
                   "code": 403,
-                  "message": "The authorized record model is not allowed to perform this action.",
+                  "message": "${$_("common.message.insufficientAuthority")}",
                   "data": {}
                 }
             `,

@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import ApiClient from "@/utils/ApiClient";
     import CommonHelper from "@/utils/CommonHelper";
     import CodeBlock from "@/components/base/CodeBlock.svelte";
@@ -40,7 +41,7 @@
             body: `
                 {
                   "code": 400,
-                  "message": "Something went wrong while processing your request. Invalid filter.",
+                  "message": "${$_("common.message.networkError")}",
                   "data": {}
                 }
             `,
@@ -52,7 +53,7 @@
                 body: `
                     {
                       "code": 403,
-                      "message": "Only superusers can access this action.",
+                      "message": "${$_("common.message.insufficientAuthority")}",
                       "data": {}
                     }
                 `,

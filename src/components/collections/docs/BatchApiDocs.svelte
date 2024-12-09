@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import { link } from "svelte-spa-router";
     import ApiClient from "@/utils/ApiClient";
     import CommonHelper from "@/utils/CommonHelper";
@@ -37,7 +38,7 @@
                         "message": "Batch request failed.",
                         "response": {
                           "status": 400,
-                          "message": "Failed to create record.",
+                          "message": "${$_("common.message.createError")}",
                           "data": {
                             "id": {
                               "code": "validation_min_text_constraint",

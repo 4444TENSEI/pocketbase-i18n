@@ -1,14 +1,8 @@
 <script>
     import "./scss/main.scss";
-    // ---
-    import { _ } from 'svelte-i18n';
-    import { locale } from 'svelte-i18n';
-    import { onMount } from 'svelte';
-    onMount(async () => {
-        const userLocale = getUserLocale();
-        await locale.set(userLocale);
-    });
-    // ---
+
+    import { _, json } from "svelte-i18n";
+
     import tooltip from "@/actions/tooltip";
     import Confirmation from "@/components/base/Confirmation.svelte";
     import TinyMCE from "@/components/base/TinyMCE.svelte";
@@ -36,7 +30,7 @@
 
     function handleRouteLoading(e) {
         if (e?.detail?.location === oldLocation) {
-            return; // not an actual change
+            return;
         }
 
         showAppSidebar = !!e?.detail?.userData?.showAppSidebar;
@@ -77,7 +71,8 @@
 </script>
 
 <svelte:head>
-    <title>{CommonHelper.joinNonEmpty([$pageTitle, $appName, "PocketBase"], " - ")}</title>
+    <!-- 🐱 -->
+    <title>{CommonHelper.joinNonEmpty([$pageTitle, $appName], " - ")}</title>
 
     {#if window.location.protocol == "https:"}
         <link
@@ -101,25 +96,29 @@
             </a>
 
             <nav class="main-menu">
-                <!-- 🐱 -->
                 <a
                     href="/collections"
                     class="menu-item"
                     aria-label="Collections"
                     use:link
                     use:active={{ path: "/collections/?.*", className: "current-route" }}
-                    use:tooltip={{ text: "Collections", position: "right" }}
+                    use:tooltip={{
+                        text: $json("common.menu.collection"),
+                        position: "right",
+                    }}
                 >
                     <i class="ri-database-2-line" />
                 </a>
-                <!-- 🐱 -->
                 <a
                     href="/logs"
                     class="menu-item"
                     aria-label="Logs"
                     use:link
                     use:active={{ path: "/logs/?.*", className: "current-route" }}
-                    use:tooltip={{ text: "Logs", position: "right" }}
+                    use:tooltip={{
+                        text: $json("common.menu.log"),
+                        position: "right",
+                    }}
                 >
                     <i class="ri-line-chart-line" />
                 </a>
@@ -129,7 +128,10 @@
                     aria-label="Settings"
                     use:link
                     use:active={{ path: "/settings/?.*", className: "current-route" }}
-                    use:tooltip={{ text: "Settings", position: "right" }}
+                    use:tooltip={{
+                        text: $json("common.menu.setting"),
+                        position: "right",
+                    }}
                 >
                     <i class="ri-tools-line" />
                 </a>

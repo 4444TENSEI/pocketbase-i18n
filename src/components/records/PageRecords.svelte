@@ -1,5 +1,5 @@
 <script>
-    import { _ } from 'svelte-i18n';
+    import { _, json } from "svelte-i18n";
     import { tick } from "svelte";
     import { querystring } from "svelte-spa-router";
     import CommonHelper from "@/utils/CommonHelper";
@@ -144,7 +144,7 @@
     <PageWrapper center>
         <div class="placeholder-section m-b-base">
             <span class="loader loader-lg" />
-            <h1>Loading collections...</h1>
+            <h1>{$_("common.message.loading")}</h1>
         </div>
     </PageWrapper>
 {:else if !$collections.length}
@@ -212,7 +212,7 @@
                 {#if $activeCollection.type !== "view"}
                     <button type="button" class="btn btn-expanded" on:click={() => recordUpsertPanel?.show()}>
                         <i class="ri-add-line" />
-                        <span class="txt">{$_("common.action.createData")}</span>
+                        <span class="txt">{$_("common.action.newData")}</span>
                     </button>
                 {/if}
             </div>
@@ -220,6 +220,7 @@
 
         <Searchbar
             value={filter}
+            placeholder={$json("common.placeholder.searchDataPrompt")}
             autocompleteCollection={$activeCollection}
             on:submit={(e) => (filter = e.detail)}
         />

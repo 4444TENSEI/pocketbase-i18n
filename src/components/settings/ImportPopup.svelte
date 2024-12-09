@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import { createEventDispatcher } from "svelte";
     import ApiClient from "@/utils/ApiClient";
     import CommonHelper from "@/utils/CommonHelper";
@@ -137,7 +138,7 @@
     {/each}
 
     <svelte:fragment slot="footer">
-        <button type="button" class="btn btn-transparent" on:click={hide} disabled={isImporting}>Close</button
+        <button type="button" class="btn btn-transparent" on:click={hide} disabled={isImporting}>{$_("common.action.close")}</button
         >
         <button
             type="button"

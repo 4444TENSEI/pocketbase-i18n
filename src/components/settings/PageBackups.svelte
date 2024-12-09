@@ -1,5 +1,5 @@
 <script>
-    import { _ } from 'svelte-i18n';
+    import { _, json } from "svelte-i18n";
     import { slide } from "svelte/transition";
     import ApiClient from "@/utils/ApiClient";
     import CommonHelper from "@/utils/CommonHelper";
@@ -16,7 +16,7 @@
     import S3Fields from "@/components/settings/S3Fields.svelte";
     import BackupUploadButton from "@/components/settings/BackupUploadButton.svelte";
 
-    $pageTitle = "Backups";
+    $pageTitle = $json("common.menu.backupConfig");
 
     let backupsListComponent;
     let originalFormSettings = {};
@@ -110,8 +110,12 @@
     <div class="wrapper">
         <div class="panel" autocomplete="off" on:submit|preventDefault={save}>
             <div class="flex m-b-sm flex-gap-10">
-                <span class="txt-xl">Backup and restore your PocketBase data</span>
-                <RefreshButton class="btn-sm" tooltip={"Refresh"} on:refresh={refreshList} />
+                <span class="txt-xl">{$_("page.setting.content.backup.content.1")}</span>
+                <RefreshButton
+                    class="btn-sm"
+                    tooltip={$json("common.action.refresh")}
+                    on:refresh={refreshList}
+                />
                 <BackupUploadButton class="btn-sm" on:success={refreshList} />
             </div>
 
@@ -126,7 +130,7 @@
                 disabled={isLoading}
                 on:click={() => (showBackupsSettings = !showBackupsSettings)}
             >
-                <span class="txt">Backups options</span>
+                <span class="txt">{$_("page.setting.content.backup.action.moreBackupOption")}</span>
                 {#if showBackupsSettings}
                     <i class="ri-arrow-up-s-line" />
                 {:else}
@@ -143,7 +147,9 @@
                 >
                     <Field class="form-field form-field-toggle m-t-base m-b-0" let:uniqueId>
                         <input type="checkbox" id={uniqueId} bind:checked={enableAutoBackups} />
-                        <label for={uniqueId}>Enable auto backups</label>
+                        <label for={uniqueId}
+                            >{$_("page.setting.content.backup.action.enableAutoBackup")}</label
+                        >
                     </Field>
 
                     {#if enableAutoBackups}
@@ -244,7 +250,7 @@
                     <div class="clearfix m-b-base" />
 
                     <S3Fields
-                        toggleLabel="Store backups in S3 storage"
+                        toggleLabel={$json("page.setting.content.backup.action.backupToS3")}
                         testFilesystem="backups"
                         configKey="backups.s3"
                         originalConfig={originalFormSettings.backups?.s3}
@@ -282,7 +288,7 @@
                                 disabled={!hasChanges || isSaving}
                                 on:click={() => reset()}
                             >
-                                <span class="txt">Reset</span>
+                                <span class="txt">{$_("common.action.reset")}</span>
                             </button>
                         {/if}
 
@@ -293,7 +299,7 @@
                             disabled={!hasChanges || isSaving}
                             on:click={() => save()}
                         >
-                            <span class="txt">Save changes</span>
+                            <span class="txt">{$_("common.action.save")}</span>
                         </button>
                     </div>
                 </form>

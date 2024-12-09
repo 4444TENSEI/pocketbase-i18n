@@ -12,7 +12,7 @@
       "action": {
         "login": "ログイン",
         "logout": "ログアウト",
-        "createData": "新しいデータを追加する",
+        "create": "新しいデータを追加する",
         "editData": "編集",
         "deleteData": "消去",
         "refresh": "リフレッシュする",

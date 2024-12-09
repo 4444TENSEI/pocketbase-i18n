@@ -1,4 +1,5 @@
 <script>
+    import { _, json } from "svelte-i18n";
     import providersList from "@/providers.js";
     import { confirm } from "@/stores/confirmation";
     import { addSuccessToast } from "@/stores/toasts";
@@ -96,7 +97,7 @@
                 </button>
             </div>
         {/each}
-    </div>
+    </div>  
 {:else}
-    <h6 class="txt-hint txt-center m-t-sm m-b-sm">No linked OAuth2 providers.</h6>
+    <h6 class="txt-hint txt-center m-t-sm m-b-sm">{$_("common.message.noOa2Provider")}</h6>
 {/if}

@@ -1,4 +1,5 @@
 <script>
+    import { _ } from 'svelte-i18n';
     import CodeBlock from "@/components/base/CodeBlock.svelte";
     import FieldsQueryParam from "@/components/collections/docs/FieldsQueryParam.svelte";
     import SdkTabs from "@/components/base/SdkTabs.svelte";
@@ -29,7 +30,7 @@
             body: `
                 {
                   "code": 401,
-                  "message": "The request requires valid record authorization token to be set.",
+                  "message": "${$_("common.message.noAccess")}",
                   "data": {}
                 }
             `,

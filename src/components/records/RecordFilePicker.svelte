@@ -1,4 +1,5 @@
 <script>
+    import { _, json } from "svelte-i18n";
     import tooltip from "@/actions/tooltip";
     import Field from "@/components/base/Field.svelte";
     import ObjectSelect from "@/components/base/ObjectSelect.svelte";
@@ -248,7 +249,6 @@
                 <div class="flex m-b-base flex-gap-10">
                     <Searchbar
                         value={filter}
-                        placeholder="Record search term or filter..."
                         autocompleteCollection={selectedCollection}
                         on:submit={(e) => (filter = e.detail)}
                     />
@@ -257,7 +257,7 @@
                         class="btn btn-pill btn-transparent btn-hint p-l-xs p-r-xs"
                         on:click={() => upsertPanel?.show()}
                     >
-                        <div class="txt">{$_("common.action.createData")}</div>
+                        <div class="txt">{$_("common.action.newData")}</div>
                     </button>
                 </div>
                 <Scroller
@@ -319,7 +319,7 @@
 
     <svelte:fragment slot="footer">
         <button type="button" class="btn btn-transparent m-r-auto" disabled={isLoading} on:click={hide}>
-            <span class="txt">Cancel</span>
+            <span class="txt">{$_("common.action.cancel")}</span>
         </button>
 
         {#if CommonHelper.hasImageExtension(selectedFile?.name)}

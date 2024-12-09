@@ -144,7 +144,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="min-width txt-hint txt-bold">{$_("page.log.table.field.level")}</td>
+                    <td class="min-width txt-hint txt-bold">level</td>
                     <td>
                         <LogLevel level={log.level} />
                         <div class="copy-icon-wrapper">
@@ -153,7 +153,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="min-width txt-hint txt-bold">{$_("page.log.table.field.createAt")}</td>
+                    <td class="min-width txt-hint txt-bold">created</td>
                     <td>
                         <LogDate date={log.created} />
                         <div class="copy-icon-wrapper">
@@ -163,7 +163,7 @@
                 </tr>
                 {#if !isRequest}
                     <tr>
-                        <td class="min-width txt-hint txt-bold">{$_("page.log.table.field.message")}</td>
+                        <td class="min-width txt-hint txt-bold">message</td>
                         <td>
                             {#if log.message}
                                 <span class="txt">{log.message}</span>
@@ -183,7 +183,9 @@
                     {@const isJson = !isEmpty && value !== null && typeof value == "object"}
                     <tr>
                         <td class="min-width txt-hint txt-bold" class:v-align-top={isJson}>
-                            data.{key}
+                            <!-- 🐱 -->
+                            <!-- data.{key} -->
+                            {key}
                         </td>
                         <td>
                             {#if isEmpty}
@@ -216,12 +218,12 @@
 
     <svelte:fragment slot="footer">
         <button type="button" class="btn btn-transparent" on:click={() => hide()}>
-            <span class="txt">Close</span>
+            <span class="txt">{$_("common.action.close")}</span>
         </button>
 
         <button type="button" class="btn btn-primary" disabled={isLoading} on:click={() => downloadJson()}>
             <i class="ri-download-line" />
-            <span class="txt">Download as JSON</span>
+            <span class="txt">{$_("common.action.exportJson")}</span>
         </button>
     </svelte:fragment>
 </OverlayPanel>

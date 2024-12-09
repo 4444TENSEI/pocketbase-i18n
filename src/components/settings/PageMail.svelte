@@ -1,5 +1,5 @@
 <script>
-    import { _ } from "svelte-i18n";
+    import { _, json } from "svelte-i18n";
     import tooltip from "@/actions/tooltip";
     import Field from "@/components/base/Field.svelte";
     import ObjectSelect from "@/components/base/ObjectSelect.svelte";
@@ -24,7 +24,7 @@
         { label: "LOGIN", value: "LOGIN" },
     ];
 
-    $pageTitle = "SMTP Mail settings";
+    $pageTitle = $json("common.menu.smtpConfig");
 
     let testPopup;
     let originalFormSettings = {};
@@ -274,7 +274,7 @@
                             disabled={isSaving}
                             on:click={() => reset()}
                         >
-                            <span class="txt">Cancel</span>
+                            <span class="txt">{$_("common.action.cancel")}</span>
                         </button>
                         <button
                             type="submit"
@@ -283,7 +283,7 @@
                             disabled={!hasChanges || isSaving}
                             on:click={() => save()}
                         >
-                            <span class="txt">Save changes</span>
+                            <span class="txt">{$_("common.action.save")}</span>
                         </button>
                     {:else}
                         <button
@@ -292,7 +292,7 @@
                             on:click={() => testPopup?.show()}
                         >
                             <i class="ri-mail-check-line" />
-                            <span class="txt">Send test email</span>
+                            <span class="txt">{$_("page.setting.content.account.action.sendTestEmail")}</span>
                         </button>
                     {/if}
                 </div>

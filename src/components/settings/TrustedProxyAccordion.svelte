@@ -1,4 +1,5 @@
 <script>
+    import { _, json } from "svelte-i18n";
     import tooltip from "@/actions/tooltip";
     import Accordion from "@/components/base/Accordion.svelte";
     import Field from "@/components/base/Field.svelte";
@@ -47,7 +48,7 @@
     <svelte:fragment slot="header">
         <div class="inline-flex">
             <i class="ri-route-line"></i>
-            <span class="txt">User IP proxy headers</span>
+            <span class="txt">{$_("page.setting.content.application.proxy.title")}</span>
             {#if !isEnabled && healthData.possibleProxyHeader}
                 <i
                     class="ri-alert-line txt-sm txt-warning"
@@ -56,7 +57,7 @@
             {:else if isEnabled && !hasChanges && !formSettings.trustedProxy.headers.includes(healthData.possibleProxyHeader)}
                 <i
                     class="ri-alert-line txt-sm txt-hint"
-                    use:tooltip={"The configured proxy header doesn't match with the detected one."}
+                    use:tooltip={$_("page.setting.content.application.proxy.tip.1")}
                 />
             {/if}
         </div>
@@ -81,7 +82,7 @@
     <div class="alert alert-info m-b-sm">
         <div class="content">
             <div class="inline-flex flex-gap-5">
-                <span>Resolved user IP:</span>
+                <span>{$_("page.setting.content.application.proxy.curIp")}</span>
                 <strong>{healthData.realIP || "N/A"}</strong>
                 <i
                     class="ri-information-line txt-sm link-hint"
@@ -157,7 +158,7 @@
                     <i
                         class="ri-information-line link-hint"
                         use:tooltip={{
-                            text: "This is in case the proxy returns more than 1 IP as header value. The rightmost IP is usually considered to be the more trustworthy but this could vary depending on the proxy.",
+                            text: $json("page.setting.content.application.proxy.content.2"),
                             position: "right",
                         }}
                     />

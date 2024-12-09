@@ -1,4 +1,5 @@
 <script>
+    import { _, json } from "svelte-i18n";
     import { createEventDispatcher, onDestroy } from "svelte";
     import ApiClient from "@/utils/ApiClient";
     import tooltip from "@/actions/tooltip";
@@ -77,7 +78,7 @@
     class:btn-loading={isUploading}
     class:btn-disabled={isUploading}
     aria-label="Upload backup"
-    use:tooltip={"Upload backup"}
+    use:tooltip={$json("common.action.restoreBackupFile")}
     on:click={() => fileInput?.click()}
 >
     <i class="ri-upload-cloud-line" />

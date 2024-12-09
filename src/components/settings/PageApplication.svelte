@@ -1,5 +1,5 @@
 <script>
-    import { _ } from 'svelte-i18n';
+    import { _, json } from "svelte-i18n";
     import ApiClient from "@/utils/ApiClient";
     import CommonHelper from "@/utils/CommonHelper";
     import tooltip from "@/actions/tooltip";
@@ -13,7 +13,7 @@
     import TrustedProxyAccordion from "@/components/settings/TrustedProxyAccordion.svelte";
     import RateLimitAccordion from "@/components/settings/RateLimitAccordion.svelte";
 
-    $pageTitle = "Application settings";
+    $pageTitle = $json("common.menu.appConfig");
 
     let originalFormSettings = {};
     let formSettings = {};
@@ -175,7 +175,7 @@
     <header class="page-header">
         <nav class="breadcrumbs">
             <div class="breadcrumb-item">{$_("common.menu.setting")}</div>
-            <div class="breadcrumb-item">Application</div>
+            <div class="breadcrumb-item">{$_("common.menu.appConfig")}</div>
         </nav>
     </header>
 
@@ -187,7 +187,7 @@
                 <div class="grid">
                     <div class="col-lg-6">
                         <Field class="form-field required" name="meta.appName" let:uniqueId>
-                            <label for={uniqueId}>Application name</label>
+                            <label for={uniqueId}>{$_("page.setting.content.application.serverName")}</label>
                             <input
                                 type="text"
                                 id={uniqueId}
@@ -199,7 +199,7 @@
 
                     <div class="col-lg-6">
                         <Field class="form-field required" name="meta.appURL" let:uniqueId>
-                            <label for={uniqueId}>Application URL</label>
+                            <label for={uniqueId}>{$_("page.setting.content.application.serverUrl")}</label>
                             <input type="text" id={uniqueId} required bind:value={formSettings.meta.appURL} />
                         </Field>
                     </div>
@@ -218,7 +218,9 @@
                                 bind:checked={formSettings.meta.hideControls}
                             />
                             <label for={uniqueId}>
-                                <span class="txt">Hide collection create and edit controls</span>
+                                <span class="txt"
+                                    >{$_("page.setting.content.application.action.hideEditControl")}</span
+                                >
                                 <i
                                     class="ri-information-line link-hint"
                                     use:tooltip={{
@@ -241,7 +243,7 @@
                             disabled={isSaving}
                             on:click={() => reset()}
                         >
-                            <span class="txt">Cancel</span>
+                            <span class="txt">{$_("common.action.cancel")}</span>
                         </button>
                     {/if}
 
@@ -252,7 +254,7 @@
                         disabled={!hasChanges || isSaving}
                         on:click={() => save()}
                     >
-                        <span class="txt">Save changes</span>
+                        <span class="txt">{$_("common.action.save")}</span>
                     </button>
                 </div>
             {/if}

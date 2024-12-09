@@ -1,6 +1,7 @@
 <script>
+    import { _ } from "svelte-i18n";
+    
     import { fly } from "svelte/transition";
-
     import Field from "@/components/base/Field.svelte";
     import OverlayPanel from "@/components/base/OverlayPanel.svelte";
     import providersList from "@/providers.js";
@@ -102,6 +103,6 @@
     </div>
 
     <svelte:fragment slot="footer">
-        <button type="button" class="btn btn-transparent" on:click={hide}>Cancel</button>
+        <button type="button" class="btn btn-transparent" on:click={hide}>{$_("common.action.cancel")}</button>
     </svelte:fragment>
 </OverlayPanel>
